@@ -7,66 +7,66 @@
 		<meta name="Institutional Review Board (IRB)" content="This is the IRB Login page" />
 		<meta name="keywords" content="Institutional Review Board (IRB), Login, Principal Investigator, Faculty Supervisor, Assent Form, Grant Proposal" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		
+
 		{% load static %}
 		<link rel="stylesheet" type="text/css" href={% static 'accounts/style.css' %}>
-		
+
 		<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
-		
+
 	</head>
-	
+
 	<body>
-	
+
 		<!-- HEADER -->
 			<div id="header" class="sticky">
 				<div>
 					<a href="irb_login.html"><img class="logo" src="images/mga-header-logo.png" alt=""/></a>
 				</div>
-					
+
 				<div>
-					<h1 class="title">Institutional Review Board</h1>
+					<h1 class="title">Institutional RevieW Board</h1>
 				</div>
 			</div>
-			
+
 		<!-- CONTENT-->
-		
+
 		<!-- Beginning of login form -->
 		<div class="login_content" id="item1">
 			<section class="container">
 
 				<form id="contact" action="irb_form.html" method="post">
-						
+
 					<h3>Login</h3><br>
-					
+
 					<!-- Email Field -->
 					<fieldset>
 						<input placeholder="MGA Email" name="email" type="text" id=" " tabindex="1" required=" ">
 					</fieldset>
-					
+
 					<!-- Password Field -->
 					<fieldset>
 						<input placeholder="Password" name="password" type="password" id="myPass" tabindex="2" required=" ">
 					</fieldset>
-					
+
 					<!-- Display password CheckBox-->
 					<fieldset>
 						<input type="checkbox" onclick="showFunction()" value="ShowMe" id=""> Show Password
 					</fieldset>
 					<br>
-					
+
 					<!-- Remember Login CheckBox -->
 					<fieldset>
 						<input type="checkbox" name="checkbox" id="remember_Me" value="Remember"><label for="irb_form"> Remember Me</label>
-						
+
 						<!-- Forgot Password page -->
 						<a class="fright" href="irb_reset_login.html">Forgot Password</a>
 					</fieldset>
-					
+
 					<!-- Submit Data Button-->
 					<fieldset>
 						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Sign In</button>
 					</fieldset>
-					
+
 					<!-- Register Account Page -->
 					<fieldset>
 						<p class="fleft">Do you have an account?</p>
@@ -76,12 +76,12 @@
 			</section>
 		</div>
 		<!-- End of login form -->
-		
-			
-		<!-- FOOTER -->	
-		
+
+
+		<!-- FOOTER -->
+
 		<div id="footer">
-		
+
 			<!-- MGA Site Location Links -->
 			<div class="site_nav">
 				<ul>
@@ -93,7 +93,7 @@
 				</ul>
 				<br>
 			</div>
-			
+
 			<!-- MGA Footer Links -->
 			<div class="menu2">
 				<ul class="dropdown">
@@ -121,7 +121,7 @@
 				<ul id="position">
 					<a href="https://www.mga.edu/index.php"><img class="flogo" src="images/mga-footer-logo.png" alt=""/></a>
 				</ul>
-				
+
 				<ul class="dropdown">
 					<button class="dropbtn" onclick="ContactFunction()" style="vertical-align:middle"><span>Contact</span></button>
 					<hr><br>
@@ -145,10 +145,10 @@
 						<a href="https://www.mga.edu/student-affairs/diversity-inclusion-equity-office.php" target="_blank"><li>Diversity</li></a>
 					</div>
 				</ul>
-				
+
 			</div>
 		</div>
-		
+
 		<!-- MGA Address Links & Social Media Links-->
 		<div id="address_sec">
 			<div>
@@ -161,22 +161,22 @@
 				</ul>
 			</div>
 		</div>
-		
-		
-		
+
+
+
 		<!-- Copyright Section -->
 		<div id="copyright_sec">
 			<p class="aligncenter"><i>Copyright © <span id="demo"> </span> Middle Georgia State University</i></p>
-			
+
 			<!-- Script to get the Current Year -->
 			<script>
 				var d = new Date();
 				document.getElementById("demo").innerHTML = d.getFullYear();
 			</script>
-			
+
 		</div>
-		
-		
+
+
 		<!-- Script Sections -->
 		<script src="http://ajax.googleapis.com/ajax.libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/jquery-3.3.1.min.js"></script>
