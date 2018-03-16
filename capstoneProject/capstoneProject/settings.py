@@ -26,7 +26,7 @@ SECRET_KEY = '*ex1sa9hq@8!!9-$lvnhk_2l&dz!_rzvlb_mr*3phv0!x++hmg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['159.65.168.98']
+ALLOWED_HOSTS = ['159.65.168.98', 'wrcapstone.me']
 
 
 # Application definition
