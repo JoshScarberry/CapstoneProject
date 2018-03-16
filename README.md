@@ -10,4 +10,6 @@ For anyone seeing this, you already have created a github account. I recommend g
 These directories contain the files for our django project including the html, css, js, and any other files associated with the webpage itself. I know these directories can seem a little convoluted and redundantly named but they are that way for a reason. If you create a fork to work on the project please do not "clean them up", or reorganize/rename them. The youtube series I mainly used to create this project can be found here https://www.youtube.com/watchv=Fc2O3_2kax8&index=1&list=PLw02n0FEB3E3VSHjyYMcFadtQORvl1Ssj
 If you want to take part in this or just understand what is going on with these files please watch this or ask any questions anytime.
 
+If you would like to code on your fork and test on your machine, you will need to install django and run the django server locally on your machine. There are instructions on the django website to install on any OS. 
+
 
