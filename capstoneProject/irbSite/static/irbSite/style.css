@@ -48,7 +48,7 @@ body {font-family: "Roboto", sans-serif; font-weight:400; font-size: 12px; line-
 #address_sec  a:hover {color:#b2b7bb; font-size:15px; text-decoration:underline; -webkit-transition:color 0.7s ease-in-out; -moz-transition:color 0.7s ease-in-out; transition:color 0.7s ease-in-out;}
 #address_sec ul{display:block; float:right;}
 #address_sec li{display:inline-block;}
-#address_sec img {width:30px; height:30px; padding:2px; margin:0;}  
+#address_sec img {width:30px; height:30px; padding:2px; margin:0;}
 #address_sec img:hover {color:#ff0000; border:none;}
 #address_sec div {width:70%; margin:auto;}
 #address_sec .sIcons {}
@@ -150,18 +150,18 @@ a:hover {text-decoration:none}
  {background:#703aa7; -webkit-transition:background 0.3s ease-in-out;-moz-transition:background 0.3s ease-in-out; transition:background-color 0.3s ease-in-out;}
 #contact button[type="submit"]:active
 #contact button[type="button"]:active,
-#contact button[type="reset"]:active, 
+#contact button[type="reset"]:active,
 {box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5);}
 #contact .nextButton a{background:#703aa7; width:100%}
-#contact input[type=button], 
-#contact input[type=submit], 
+#contact input[type=button],
+#contact input[type=submit],
 #contact input[type=reset] {background-color: #633394; font:400 16px/16px "Roboto", Helvetica, Arial, sans-serif; border: none; color: white; padding: 16px 32px; text-decoration: none; margin: 4px 2px; cursor: pointer; width:100%; width: auto\9; /* ie8 */}
-#contact input[type=button]:hover, 
-#contact input[type=submit]:hover, 
+#contact input[type=button]:hover,
+#contact input[type=submit]:hover,
 #contact input[type=reset]:hover
  {background:#703aa7; -webkit-transition:background 0.3s ease-in-out; -moz-transition:background 0.3s ease-in-out; transition:background-color 0.3s ease-in-out;}
-#contact input[type=button]:active, 
-#contact input[type=submit]:active, 
+#contact input[type=button]:active,
+#contact input[type=submit]:active,
 #contact input[type=reset]:active
 {box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5);}
 
@@ -172,8 +172,8 @@ a:hover {text-decoration:none}
 	border: none;
 }
 
-	
-	
+
+
 /********OTHER BUTTONS***************/
 
 #instructions a:button {cursor:pointer; width:100%; border:none; background: #633394; color:#FFF;margin:0 0 5px; padding:20px; font-size:15px; text-decoration:none; -webkit-transition:background 0.8s ease-in-out;  -moz-transition:background 0.8s ease-in-out; transition:background-color 0.8s ease-in-out;}
@@ -206,13 +206,13 @@ a:hover {text-decoration:none}
 
 .step.active { border-color: #633394; border-style:solid; background-color: #896ba1; color:white;}
 
-.step.finish { background-color: #633394; border-color: #633394; border-style:solid; color:white;}	
-	
+.step.finish { background-color: #633394; border-color: #633394; border-style:solid; color:white;}
+
 button{ background-color: #633394; color: #ffffff; border: none; padding: 10px 20px; font-size: 17px; font-family: Raleway; cursor: pointer;}
 
 button:hover { background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ring-color auto 5px;}
 
-#prevBtn {background-color: #703aa7; border-radius:5px}	
+#prevBtn {background-color: #703aa7; border-radius:5px}
 
 #nextBtn {background-color: #633394; border-radius:5px}
 
@@ -220,17 +220,17 @@ button:hover { background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ri
 
 .tab {display: none;}
 
-.tab {display: none;}	
-	
-#regForm {background-color: #e1e1e1; margin:0px auto; font-family: Raleway; padding: 40px; width: 40%; min-width: 300px; border-radius:10px; min-height:300px;}	
+.tab {display: none;}
+
+#regForm {background-color: #e1e1e1; margin:0px auto; font-family: Raleway; padding: 40px; width: 40%; min-width: 300px; border-radius:10px; min-height:300px;}
 
 
-#contact input.invalid { border-color: #ff0000; color: #B22222;}	
+#contact input.invalid { border-color: #ff0000; color: #B22222;}
 
-#contact textarea.invalid  {border-color: #ff0000; color: #B22222;}	
+#contact textarea.invalid  {border-color: #ff0000; color: #B22222;}
 
-#contact option.invalid  {background-color: #ff0000; color: #B22222;}	
-	
+#contact option.invalid  {background-color: #ff0000; color: #B22222;}
+
 
 /************* PASSWORD VALIDATE *************/
 
@@ -270,58 +270,58 @@ button:hover { background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ri
     left: -35px;
     content: "✖";
 }
-	
+
 /***********MOBILE WEB SETTINGS******************************/
 
 @media only screen and (max-width: 800px) {
     body {
-		width:400px; overflow-x:hidden; 
+		width:400px; overflow-x:hidden;
 	}
 
     #header .title{
-		font-size: 50%; color:#ffffff; width:100%; margin: 100px 0 150px 0px; 
+		font-size: 50%; color:#ffffff; width:100%; margin: 100px 0 150px 0px;
 	}
-	
+
 	#header .logo {
 		width:80%; margin: -2px 0px 5px -35px;
 	}
-	
+
 	.sticky {
 		position: -webkit-sticky; /* Safari */
 		position: sticky;
 		top: 0;
 	}
-	
+
 	#footer {
-		color:#ffffff; font-size: 2vw; background-color:#2c2c2c; width:100%; overflow:hidden; margin:auto; padding:1px; height:50%; float:none; text-align:center;  
+		color:#ffffff; font-size: 2vw; background-color:#2c2c2c; width:100%; overflow:hidden; margin:auto; padding:1px; height:50%; float:none; text-align:center;
 	}
-	
+
 	#footer .site_nav {
 		width:auto; font-size:4vw;
 	}
-	
+
 	#footer .menu2 ul{
 		display:block; padding:1px; border-top:1px solid #e5e5e5; margin:auto;
 	}
-	
+
 	#footer .menu2 hr{
 		display:none;
 	}
-	
+
 	#footer .noBorder{
 		border:none;
 	}
-	
+
 	#footer .menu2 img {
 		width:60%;
 		height:60%;
 		padding:5px;
 	}
-	
+
 	#footer .position {
 		position:top;
 	}
-	
+
 	#footer .dropbtn {
 		background-color: transparent;
 		color: white;
@@ -353,7 +353,7 @@ button:hover { background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ri
 		text-decoration: none;
 		display: block;
 	}
-	
+
 	#footer .dropdown a:hover {
 		color: #703aa7;
 	}
@@ -362,55 +362,55 @@ button:hover { background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ri
 		display:block;
 		transition: display ease-in-out, width .35s ease-in-out;
 	}
-	
+
 	#address_sec {
 		height:auto; margin:auto; padding:15px; width: auto\9; /* ie8 */
 	}
-	
+
 	#address_sec ul {
 		float:none;
 	}
-	
+
 	#address_sec img{
 		margin:auto;
 	}
-	
+
 	#address_sec div {
 		width:50%;
 	}
-	
+
 	#copyright_sec{
 		margin:auto; height:auto;
 	}
-	
+
 	#contact {
 		background:#fbfbfb; padding:25px; margin:auto; box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 		}
-	
+
 	#contact h2 {
 		font-size:14px; width:100%; overflow:hidden;
 	}
-	
+
 	#contact h3 {
 		font-size: 18px; width:100%; overflow:hidden;
 	}
-	
+
 	#contact h4 {
 		width:100%; overflow:hidden; margin:auto; display:block; font-size:15vw; font-weight:400;
 	}
-	
+
 	#section_head {
 		width:100%; border:none; color:#633394; margin:0 0 5px;padding: 5px; font-size: 15vw;
 	}
-	
+
 	.container {
-		width:100%; overflow:hidden; margin: auto; 
+		width:100%; overflow:hidden; margin: auto;
 	}
-	
+
 	.content{
 		width:100%; overflow:hidden;  margin:auto; margin-top:-100px;  width: auto\9; /* ie8 */
 	}
-	
+
 	.form_content{
 		width: 100%; overflow:hidden; max-height:50%; margin: auto; width: auto\9; /* ie8 */
 	}
@@ -418,11 +418,11 @@ button:hover { background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ri
 	.login_content{
 		width: 100%; overflow:hidden; max-height:50%; margin: auto; width: auto\9; /* ie8 */
 	}
-	
+
 	.step {
 		height: 30px;
 		width: 30px;
 	}
-	
-	
+
+
 }
