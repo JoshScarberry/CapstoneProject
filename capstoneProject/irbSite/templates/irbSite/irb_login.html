@@ -7,6 +7,7 @@
 
 	{% block body%}
 	{% load static %}
+
 		<!-- HEADER -->
 			<div id="header" class="sticky">
 				<div>
@@ -28,16 +29,18 @@
 
 					<h3>Login</h3><br>
 
+					{% csrf_token %}
+					{{ form.as_p }}
 					<!-- Email Field -->
-					<fieldset>
+<!--					<fieldset>
 						<input placeholder="MGA Email" name="email" type="text" id=" " tabindex="1" required=" ">
 					</fieldset>
-
+-->
 					<!-- Password Field -->
-					<fieldset>
+	<!--				<fieldset>
 						<input placeholder="Password" name="password" type="password" id="myPass" tabindex="2" required=" ">
 					</fieldset>
-
+-->
 					<!-- Display password CheckBox-->
 					<fieldset>
 						<input type="checkbox" onclick="showFunction()" value="ShowMe" id=""> Show Password
