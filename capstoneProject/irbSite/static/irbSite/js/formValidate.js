@@ -1,4 +1,19 @@
 	
+	
+	/**************Password VALIDATE************/
+	function passwordCheck() {
+		if (document.getElementById('password').value ==
+		document.getElementById('confirm_password').value) {
+		document.getElementById('match_Message').style.color = 'green';
+		document.getElementById('match_Message').innerHTML = 'matching';
+	  } else {
+		document.getElementById('match_Message').style.color = 'red';
+		document.getElementById('match_Message').innerHTML = 'not matching';
+	  }
+	}
+	
+	
+	
 	/**************NUMBER VALIDATE************/
 	
 	function nextPrev(1) {
@@ -14,20 +29,5 @@
 			text = "Input OK";
 		}
 		document.getElementById("demo").innerHTML = text;
-		
-		
-		// the baic regx for phone numbers and emails
-		// var phones = document.getElementById("phone").value;
-		// var email = document.getElementById("emails").value;
-		// var valid = true;
-		//if (phones == "" || /\d{3}[ \-\.]?\d{3}[ \-\.]?\d{4}/.test(phones)) 
-		//{
-		//document.getElementById("err6").innerHTML = "Not a valid phone number";
-			//valid = false;
-		//}
-		//if (email == "" || /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/.test(email)) 
-		//{
-		//document.getElementById("err8").innerHTML = "Not a valid email";
-			//valid = false;
-		//}
 	}
+	

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Projects Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Projects page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+  <!-- HEADER -->
+			<div id="header" class="sticky">
+				<div>
+					<a href="https://www.mga.edu/"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %} alt=""/></a>
+				</div>
+				<div class="aligncenter">
+					<h1 class="title">Institutional Review Board</h1>
+				</div>
+			</div>
+
+			<br>
+			<br>
+
+			<!-- Side Navigation Menu -->
+			<div class="menu_container">
+				<div id="menu">
+					<ul>
+						<!-- Links to the Home page, submit new project page, Forms page and the the Principal Investigator’s Handbook. -->
+						<li class="title">Menu</li>
+						<li><a href="index.html"><img class="icons" src={% static 'irbSite/images/home.png' %} alt=""/>Home</a></li>
+						<li><a href="form.html"><img class="icons" src={% static 'irbSite/images/projects.png' %} alt=""/>Submit New Project</a></li>
+						<hr>
+						<li><a href="project_forms.html"><img class="icons" src={% static 'irbSite/images/IRB-PDF-icon.png' %} alt=""/>Forms</a></li>
+						<li><a href="https://www.mga.edu/faculty-staff/governance/2016-2017/docs/standing-committees-boards/boards/institutional-review/documents/IRB%20Principal%20Investigator%20Handbook.pdf" target="_blank"><img class="icons" src={% static 'irbSite/images/handbook.png' %} alt=""/>Handbook</a></li>
+						<hr>
+						<br>
+
+						<!--Logout Button-->
+						<li><a id="mylink" href="login.html"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
+
+						<hr>
+						<br>
+
+						<!--Section that will only be displayed if user is an Admin-->
+						<li class="title">Admin</li>
+
+						<!--Links to the Admin Projects page and User page-->
+						<li><a href="admin_index.html"><img class="icons" src={% static 'irbSite/images/view_projects.png' %} alt=""/>View Projects</a></li>
+						<li><a href="user.html"><img class="icons" src={% static 'irbSite/images/users.png' %} alt=""/>Manage Users</a></li>
+					</ul>
+				</div>
+			</div>
+
+		<!-- CONTENT-->
+
+
+		<div class="user_content">
+			<section class="user_container">
+
+				<form id="user" action="confirmation.html" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
+
+					<h5>Projects</h5>
+					<br>
+
+					<table id="small_table">
+						<tr>
+							<th>IRB Projects</th><!--Header Column-->
+							<th>Date Submitted</th><!--Header Column-->
+							<th>Approval Date</th><!--Header Column-->
+							<th>Status</th><!--Header Column-->
+							<th>Submitter First Name</th><!--Header Column-->
+							<th>Submitter Last Name</th><!--Header Column-->
+							<th>Review</th><!--Header Column-->
+						</tr>
+						<tr>
+							<td>Solar Power</td><!--Table Data that will be displayed by queries from the database-->
+							<td>12/01/17</td><!--Table Data that will be displayed by queries from the database-->
+							<td></td><!--Table Data that will be displayed by queries from the database-->
+							<td>In Work</td><!--Table Data that will be displayed by queries from the database-->
+							<td>Jeff</td><!--Table Data that will be displayed by queries from the database-->
+							<td>Davis</td><!--Table Data that will be displayed by queries from the database-->
+							<td><a href="admin_forms.html">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
+						</tr>
+						<tr>
+							<td>ThinkPad</td><!--Table Data that will be displayed by queries from the database-->
+							<td>03/25/17</td><!--Table Data that will be displayed by queries from the database-->
+							<td>05/16/17</td><!--Table Data that will be displayed by queries from the database-->
+							<td>Approved</td><!--Table Data that will be displayed by queries from the database-->
+							<td>Mike</td><!--Table Data that will be displayed by queries from the database-->
+							<td>Dawson</td><!--Table Data that will be displayed by queries from the database-->
+							<td><a href="admin_forms.html">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
+						</tr>
+						<tr>
+							<td>IRB Site</td><!--Table Data that will be displayed by queries from the database-->
+							<td>12/01/17</td><!--Table Data that will be displayed by queries from the database-->
+							<td></td><!--Table Data that will be displayed by queries from the database-->
+							<td>In Work</td><!--Table Data that will be displayed by queries from the database-->
+							<td>Megan</td><!--Table Data that will be displayed by queries from the database-->
+							<td>Collins</td><!--Table Data that will be displayed by queries from the database-->
+							<td><a href="admin_forms.html">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
+						</tr>
+					</table><!--End of Table-->
+
+					<br>
+					<br>
+				</form>
+			</section>
+
+		</div>
+		<br><!--Add space between form and footer-->
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+
+	{% endblock %}

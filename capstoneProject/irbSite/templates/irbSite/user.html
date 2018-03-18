@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 	{% block head %}
-  <title>Middle Georgia State University | IRB Confirmation Login</title>
-  <meta name="Institutional Review Board (IRB)" content="This is the IRB Form Confirmation page" />
+  <title>Middle Georgia State University | IRB User Form Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB User Form page" />
 	{% endblock %}
 
 	{% block body%}
@@ -21,7 +21,7 @@
 			<br>
 			<br>
 
-			<!-- Side Navigation Menu -->
+		<!-- Side Navigation Menu -->
 			<div class="menu_container">
 				<div id="menu">
 					<ul>
@@ -54,34 +54,63 @@
 
 		<!-- CONTENT-->
 
-			<br>
-			<br>
-			<br>
-			<section class="form_container">
-				<form id="contact" action="action.php" method="post">
-					<h3> <b>Thank You.</b><br>
-						Your IRB Form has been submitted.
-					</h3>
+
+		<div class="big_container">
+			<section class="big_content">
+
+				<form id="user" action="user.html" method="post">
+
+					<h5>Users</h5>
+					<br>
+
+					<table id="small_table">
+						<tr><a href="form.html">Add users</a></tr>
+						<br>
+						<br>
+						<br>
+
+					  <tr>
+						<th>User ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Title</th>
+						<th>Email</th>
+						<th>Actions</th>
+					  </tr>
+					  <tr>
+						<td>01</td>
+						<td>John</td>
+						<td>Jackson</td>
+						<td>Review Board</td>
+						<td>john.jackson@mga.edu</a></td>
+						<td><a href="user_forms.html">Edit</a></td>
+					  </tr>
+					   <tr>
+						<td>02</td>
+						<td>Jake</td>
+						<td>Statefarm</td>
+						<td>Chairman</td>
+						<td>jake.statefarm@mga.edu</a></td>
+						<td><a href="user_forms.html">Edit</a></td>
+					  </tr>
+					   <tr>
+						<td>03</td>
+						<td>Jeff</td>
+						<td>Jones</td>
+						<td>System Admin</td>
+						<td>jeff.jones@mga.edu</a></td>
+						<td><a href="user_forms.html">Edit</a></td>
+					  </tr>
+					</table>
 				</form>
 			</section>
 
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
 	{% endblock %}

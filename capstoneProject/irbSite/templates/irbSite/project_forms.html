@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Projects Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Projects page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+  <!-- HEADER -->
+			<div id="header" class="sticky">
+				<div>
+					<a href="https://www.mga.edu/"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %} alt=""/></a>
+				</div>
+				<div class="aligncenter">
+					<h1 class="title">Institutional Review Board</h1>
+				</div>
+			</div>
+
+			<br>
+			<br>
+
+		<!-- Side Navigation Menu -->
+			<div class="menu_container">
+				<div id="menu">
+					<ul>
+						<!-- Links to the Home page, submit new project page, Forms page and the the Principal Investigator’s Handbook. -->
+						<li class="title">Menu</li>
+						<li><a href="index.html"><img class="icons" src={% static 'irbSite/images/home.png' %} alt=""/>Home</a></li>
+						<li><a href="form.html"><img class="icons" src={% static 'irbSite/images/projects.png' %} alt=""/>Submit New Project</a></li>
+						<hr>
+						<li><a href="project_forms.html"><img class="icons" src={% static 'irbSite/images/IRB-PDF-icon.png' %} alt=""/>Forms</a></li>
+						<li><a href="https://www.mga.edu/faculty-staff/governance/2016-2017/docs/standing-committees-boards/boards/institutional-review/documents/IRB%20Principal%20Investigator%20Handbook.pdf" target="_blank"><img class="icons" src={% static 'irbSite/images/handbook.png' %} alt=""/>Handbook</a></li>
+						<hr>
+						<br>
+
+						<!--Logout Button-->
+						<li><a id="mylink" href="login.html"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
+
+						<hr>
+						<br>
+
+						<!--Section that will only be displayed if user is an Admin-->
+						<li class="title">Admin</li>
+
+						<!--Links to the Admin Projects page and User page-->
+						<li><a href="admin_index.html"><img class="icons" src={% static 'irbSite/images/view_projects.png' %} alt=""/>View Projects</a></li>
+						<li><a href="user.html"><img class="icons" src={% static 'irbSite/images/users.png' %} alt=""/>Manage Users</a></li>
+					</ul>
+				</div>
+			</div>
+
+
+		<!-- CONTENT-->
+
+		<div class="small_container">
+			<section class="small_content">
+
+				<form id="forms" action="confirmation.html" method="post">
+
+					<h5>Project Forms</h5>
+					<br>
+
+					<p>You can print the below forms that are required for IRB review.</p>
+					<p>Please review the Principal Investigator’s Handbook for more details about the requirements
+						before submitting the IRB forms.
+					</p>
+
+					<br>
+
+					<table id="small_table"><!--Beginning of Table-->
+						<tr>
+							<td><a href="project_forms/IRB Model Informed Consent.pdf" target="_blank">Assent Form</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href="project_forms/IRB Model Informed Consent.pdf" target="_blank">Consent Form</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href="project_forms/IRB Model Informed Consent.pdf" target="_blank">Extenuating circumstances</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href="project_forms/Faculty_Supervisor_Signature.pdf" target="_blank">Faculty Supervisor Signature</a></td><!--Hyperlink to a blank form to use a guide-->
+						</tr>
+						<tr>
+							<td><a href="project_forms/IRB Model Informed Consent.pdf" target="_blank">Grant Proposal</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href="project_forms/IRB Model Informed Consent.pdf" target="_blank">Methodology</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href="project_forms/IRB Model Informed Consent.pdf" target="_blank">Surveys</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href="project_forms/Principal Investigator.pdf" target="_blank">Principal Investigator Signature</a></td><!--Hyperlink to a blank form to use a guide-->
+						<tr>
+					</table><!--End of Table-->
+
+					<br>
+					<br>
+				</form>
+			</section>
+
+		</div>
+		<br><!--Adds space between form and footer section-->
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+	{% endblock %}
