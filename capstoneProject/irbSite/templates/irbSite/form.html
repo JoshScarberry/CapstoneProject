@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+
+	{% block head %}
+	<title>Middle Georgia State University | IRB FORM</title>
+	<meta name="Institutional Review Board (IRB)" content="This is the IRB form" />
+	{% endblock %}
+
+
+	{% block body %}
+	{% load static %}
+
+	<!-- HEADER -->
+	<div id="header" class="sticky">
+		<div>
+			<a href="https://www.mga.edu/"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %}/></a>
+		</div>
+		<div class="aligncenter">
+			<h1 class="title">Institutional Review Board</h1>
+		</div>
+	</div>
+
+	<br>
+	<br>
+
+<!-- Side Navigation Menu -->
+	<div class="menu_container">
+		<div id="menu">
+			<ul>
+				<!-- Links to the Home page, submit new project page, Forms page and the the Principal Investigator’s Handbook. -->
+				<li class="title">Menu</li>
+				<li><a href="index.html"><img class="icons" src={% static 'irbSite/images/home.png' %}/>Home</a></li>
+				<li><a href="form.html"><img class="icons" src={% static 'irbSite/images/projects.png' %}/>Submit New Project</a></li>
+				<hr>
+				<li><a href="project_forms.html"><img class="icons" src={% static 'irbSite/images/IRB-PDF-icon.png' %}/>Forms</a></li>
+				<li><a href="https://www.mga.edu/faculty-staff/governance/2016-2017/docs/standing-committees-boards/boards/institutional-review/documents/IRB%20Principal%20Investigator%20Handbook.pdf" target="_blank"><img class="icons" src={% static 'irbSite/images/handbook.png' %} alt=""/>Handbook</a></li>
+				<hr>
+				<br>
+
+				<!--Logout Button-->
+				<li><a id="mylink" href="login.html"><img class="icons" src={% static 'irbSite/images/logout.png' %}/>Logout</a></li>
+
+				<hr>
+				<br>
+
+				<!--Section that will only be displayed if user is an Admin-->
+				<li class="title">Admin</li>
+
+				<!--Links to the Admin Projects page and User page-->
+				<li><a href="admin_index.html"><img class="icons" src={% static 'irbSite/images/view_projects.png' %}/>View Projects</a></li>
+				<li><a href="user.html"><img class="icons" src={% static 'irbSite/images/users.png'%}/>Manage Users</a></li>
+			</ul>
+		</div>
+	</div>
+
+<!-- CONTENT-->
+	<div class="small_container">
+	<section class="small_content">
+
+		<form id="user" action="confirmation.html" method="post" target="_self"><!--The action is the form-handler server page with a script for processing input data.-->
+
+			<!--Header for the Page-->
+			<h5>Submission Form</h5>
+				<br>
+
+			<!--Beginning of Table-->
+			<div class="tab"><!--Tab is used so the java script can recognize what section of the form is displaying-->
+				<table id="small_table">
+					<tr>
+						<th>Project Name</th><!--Table Headers-->
+						<td><input placeholder="Enter Project Name..." type="text" id="TITLE_PROJ_NAME" oninput="this.className = ''"tabindex="1" required></td><!--Field to edit the project title-->
+					</tr>
+					<tr>
+						<th>This Project qualifies for (select one):</th><!--Table Headers-->
+
+						<!--Field to edit the projects Review type-->
+						<td>
+							<select required>
+								<option oninput="this.className = ''" value="">Please Select</option>
+								<option oninput="this.className = ''" value="resource_key">Exempt Review</option>
+								<option oninput="this.className = ''" value="resource_key">Expedited Review</option>
+								<option oninput="this.className = ''" value="resource_key">Full IRB Review</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Consent Form</th><!--Table Headers-->
+
+						<!--Field to upload a new form to the database-->
+						<td>
+							<input  type="file" name="CONSENT" oninput="this.className = ''" multiple="true" />
+						</td>
+					</tr>
+					<tr>
+						<th>Assent Form</th><!--Table Headers-->
+
+						<!--Field to upload a new form to the database-->
+						<td>
+							<input type="file" name="ASSENT" oninput="this.className = ''" multiple="true" />
+						</td>
+					</tr>
+					<tr>
+						<th>Surveys</th><!--Table Headers-->
+
+						<!--Field to upload a new form to the database-->
+						<td>
+							<input type="file" name="SURVEY" oninput="this.className = ''" multiple="true" />
+						</td>
+					</tr>
+					<tr>
+						<th>Methodology</th><!--Table Headers-->
+
+						<!--Field to upload a new form to the database-->
+						<td>
+							<input type="file" name="DET_RSC_METH" oninput="this.className = ''" multiple="true" />
+						</td>
+					</tr>
+					<tr>
+						<th>Grant Proposal</th><!--Table Headers-->
+
+						<!--Field to upload a new form to the database-->
+						<td>
+							<input type="file" name="GRANT_PROPSAL" oninput="this.className = ''" multiple="true" />
+						</td>
+					</tr>
+					<tr>
+						<th>Extenuating circumstances</th><!--Table Headers-->
+
+						<!--Field to upload a new form to the database-->
+						<td>
+							<input type="file" name="EXT_CIRCUM" oninput="this.className = ''" multiple="true" />
+						</td>
+					</tr>
+					<tr>
+						<th>Principal Investigator Signature</th><!--Table Headers-->
+
+						<!--Field to upload a new form to the database-->
+						<td>
+							<input type="file" name="PRIN_INV" oninput="this.className = ''" multiple="true" />
+						</td>
+					</tr>
+					<tr>
+						<th>Faculty Supervisor Signature</th><!--Table Headers-->
+
+						<!--Field to upload a new form to the database-->
+						<td>
+							<input type="file" name="FAC_SUP" oninput="this.className = ''" multiple="true" />
+						</td>
+					</tr>
+				</table><!--End of the table-->
+			</div>
+			<div class="tab"><!--Tab is used so the java script can recognize what section of the form is displaying-->
+				<table id="small_table">
+					<tr>
+						<th>Funding</th><!--Table Headers-->
+						<td><textarea placeholder="Source of Funding (if any):" name="FUNDING" oninput="this.className = ''" type="text" tabindex="1" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+					<tr>
+						<th>Dates</th><!--Table Headers-->
+						<td><label>Start Date: </label>&nbsp; <input placeholder="Start Date" type="date" name="START_DATE" oninput="this.className = ''" tabindex="2" required ><br><!--Field to edit current information-->
+						<label>End Date:  </label>&nbsp;&nbsp;&nbsp;&nbsp;<input placeholder="End Date" type="date" name="END_DATE" oninput="this.className = ''" tabindex="3" required ><!--Field to edit current information-->
+						</td>
+					</tr>
+					<tr>
+						<th>Scientific Purpose</th><!--Table Headers-->
+						<td><textarea placeholder="Describe the Scientific Purpose of the Investigation...." name="PURPOSE" oninput="this.className = ''" tabindex="4" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+						<th>Methodology</th><!--Table Headers-->
+						<td><textarea name="METHOD" oninput="this.className = ''" placeholder="Describe the research methodology in non-technical language (the IRB needs to know what will be done with or to all research participants)...." tabindex="5" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+					<tr>
+						<th>Potential Benefits</th><!--Table Headers-->
+						<td><textarea name="BENEFITS" oninput="this.className = ''" placeholder="What are the potential benefits of this research (either directly to the participants, or to the body of knowledge being researched)" tabindex="6" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+					<tr>
+						<th>Anticipated Risks</th><!--Table Headers-->
+						<td><textarea name="RISK" oninput="this.className = ''" placeholder="What are the anticipated risks (risks include, physical, psychological, or economic harm; be certain to describe the steps taken to protect participants from these risks)" tabindex="7" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+					<tr>
+						<th>Participants will be recruited?</th><!--Table Headers-->
+						<td><textarea name="PARTICIPANTS" oninput="this.className = ''" placeholder="Describe how participants will be recruited (must include total number and age of all participants to be recruited and any compensation participants will be provided)" tabindex="8" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+					<tr>
+						<th>Why the identity of the participants?</th><!--Table Headers-->
+						<td><textarea name="REASON_WHY" oninput="this.className = ''" placeholder="Describe why it is necessary that the Primary Investigator(s) and/or Supervisor know the identity of the participants (not  for Exempt Reviews)" tabindex="9" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+					<tr>
+						<th>How data stored/destroyed?</th><!--Table Headers-->
+						<td><textarea name="HOW_DATA" oninput="this.className = ''" placeholder="Describe how data collected for this project will be securely stored and how and when it will be destroyed" tabindex="10" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+					<tr>
+						<th>Consent process</th><!--Table Headers-->
+						<td><textarea name=" " oninput="this.className = ''" placeholder="Describe the informed consent process" tabindex="11" required ></textarea></td><!--Field to edit current information-->
+					</tr>
+				</table><!--End of the table-->
+			</div>
+			<br>
+			<div style="overflow:auto;">
+				<div class="fleft">
+					<button type="button" id="saveBtn" onclick="save">Save</button><!--Save Button to save Progress-->
+				</div>
+				<div style="float:right;">
+					<button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button><!--Previous Button to save Progress-->
+					<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button><!--Next Button to move to the next step or Submit button to submit the form will appear-->
+				</div>
+			</div>
+			<br>
+			<div style="text-align:center; margin-top:40;">
+				<span class="step"></span><!--Step circles to show the step of the form you are on-->
+				<span class="step"></span><!--Step circles to show the step of the form you are on-->
+			</div>
+		</form>
+	</section>
+</div>
+<script src={% static 'irbSite/js/multi_form.js'%}></script><!--Java script for the multi step form-->
+
+<!-- FOOTER -->
+
+	{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Form Reset Login</title>
+  <meta name="Institutional Review Board (IRB)" content=" This is the IRB Reset Password page." />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+  <!-- HEADER -->
+			<div id="header" class="sticky">
+				<div>
+					<a href="login.html"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %} alt=""/></a>
+				</div>
+
+				<div>
+					<h1 class="title">Institutional Review Board</h1>
+				</div>
+			</div>
+
+		<!-- CONTENT-->
+
+		<div class="login_content" id="item1">
+			<section class="login_container">
+
+				<form id="contact" action="login.html" method="post">
+
+					<h3>Account Reset</h3><br>
+					<fieldset>
+						<input placeholder="MGA Email" name="email" type="email" id="EMAIL" tabindex="1" required>
+					</fieldset>
+					<fieldset>
+						<input placeholder="New Password" onkeyup="myFunction()" name="password" type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one upper-case and lower-case letter, and at least 8 or more characters" onkeyup="passwordCheck()" required>
+					</fieldset>
+					<fieldset>
+						<input placeholder="Confirm Password" onkeyup="myFunction()" name="password" type="password" id="confirm_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one upper-case and lower-case letter, and at least 8 or more characters" onkeyup="passwordCheck()" required>
+					</fieldset>
+					<fieldset>
+						<span id='match_Message'></span>
+					</fieldset>
+					<fieldset>
+						<input type="checkbox" onclick="showFunction()" id="show"> Show Passwords
+					</fieldset>
+					<br>
+					<fieldset>
+						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Reset Password</button>
+					</fieldset>
+					<fieldset>
+						<p class="fleft">Already a member?</p>
+						<a class="linkspace" href="login.html">Sign In</a>
+					</fieldset>
+				</form>
+			</section>
+			<section class="container">
+				<div id="message">
+				  <h3>Password must contain the following:</h3>
+				  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+				  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+				  <p id="number" class="invalid">A <b>number</b></p>
+				  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+				  <p id="match" class="invalid">Passwords <b> match</b></p>
+				</div>
+			</section>
+		</div>
+
+	{% endblock %}

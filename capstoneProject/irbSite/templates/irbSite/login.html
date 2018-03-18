@@ -8,10 +8,10 @@
 	{% block body%}
 	{% load static %}
 
-		<!-- HEADER -->
+	<!-- HEADER -->
 			<div id="header" class="sticky">
 				<div>
-					<a href="irb_login.html"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %}/></a>
+					<a href="login.html"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %}/></a>
 				</div>
 
 				<div>
@@ -23,24 +23,16 @@
 
 		<!-- Beginning of login form -->
 		<div class="login_content" id="item1">
-			<section class="container">
+			<section class="login_container">
 
-				<form id="contact" action="irb_form.html" method="post">
+				<form id="contact" action="index.html" method="post">
 
 					<h3>Login</h3><br>
 
 					{% csrf_token %}
 					{{ form.as_p }}
-					<!-- Email Field -->
-<!--					<fieldset>
-						<input placeholder="MGA Email" name="email" type="text" id=" " tabindex="1" required=" ">
-					</fieldset>
--->
-					<!-- Password Field -->
-	<!--				<fieldset>
-						<input placeholder="Password" name="password" type="password" id="myPass" tabindex="2" required=" ">
-					</fieldset>
--->
+
+
 					<!-- Display password CheckBox-->
 					<fieldset>
 						<input type="checkbox" onclick="showFunction()" value="ShowMe" id=""> Show Password
@@ -52,7 +44,7 @@
 						<input type="checkbox" name="checkbox" id="remember_Me" value="Remember"><label for="irb_form"> Remember Me</label>
 
 						<!-- Forgot Password page -->
-						<a class="fright" href="irb_reset_login.html">Forgot Password</a>
+						<a class="fright" href="reset_login.html">Forgot Password</a>
 					</fieldset>
 
 					<!-- Submit Data Button-->
@@ -63,7 +55,7 @@
 					<!-- Register Account Page -->
 					<fieldset>
 						<p class="fleft">Do you have an account?</p>
-						<a class="linkspace" href="irb_register.html">Sign Up</a>
+						<a class="linkspace" href="register.html">Sign Up</a>
 					</fieldset>
 				</form>
 			</section>

@@ -6,14 +6,15 @@
     {% block head %}
 
     {% endblock %}
+    {% load static %}
 
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
   		<meta name="keywords" content="Institutional Review Board (IRB), Login, Principal Investigator, Faculty Supervisor, Assent Form, Grant Proposal" />
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  		{% load static %}
-  		<link rel="stylesheet" type="text/css" href={% static 'irbSite/style.css' %}>
-  		<link rel="shortcut icon" href={% static 'irbSite/images/favicon.png' %} type="image/x-icon"/>
+
+  		<link rel="stylesheet" type="text/css" href={% static 'irbSite/style.css' %}/>
+  		<link rel="shortcut icon" href={% static 'irbSite/images/favicon.png' %} type="image/x-icon">
   </head>
 
   <body>
@@ -21,111 +22,114 @@
     {% block body %}
 
     {% endblock %}
-
+    {% load static %}
     <!-- FOOTER -->
-		<div id="footer">
 
-			<!-- MGA Site Location Links -->
-			<div class="site_nav">
-				<ul>
-					<a href="https://www.mga.edu/about/campuses/macon.php" target="_blank"><li>Macon |</li></a>
-					<a href="https://www.mga.edu/about/campuses/cochran.php" target="_blank"><li>Cochran |</li></a>
-					<a href="https://www.mga.edu/about/campuses/dublin.php" target="_blank"><li>Dublin |</li></a>
-					<a href="https://www.mga.edu/about/campuses/eastman.php" target="_blank"><li>Eastman |</li></a>
-					<a href="https://www.mga.edu/about/campuses/warner-robins.php" target="_blank"><li>Warner Robins</li></a>
-				</ul>
-				<br>
-			</div>
+  		<div id="footer">
 
-			<!-- MGA Footer Links -->
-			<div class="menu2">
-				<ul class="dropdown">
-					<button class="dropbtn" onclick="AudiencesFunction()" style="vertical-align:middle"><span>Audiences</span></button>
-					<hr><br>
-					<div class="dropdown-content" id="myDropdown">
-						<a href="https://www.mga.edu/admissions/index.php" target="_blank"><li>Future Students</li></a>
-						<a href="https://www.mga.edu/students/index.php" target="_blank"><li>Current Students</li></a>
-						<a href="https://www.mga.edu/admissions/high-school-students/index.php" target="_blank"><li>Current High School Students</li></a>
-						<a href="https://www.mga.edu/faculty-staff/index.php" target="_blank"><li>Faculty & Staff</li></a>
-						<a href="https://www.mga.edu/foundation/index.php" target="_blank"><li>Alumni & Friends</li></a>
-						<a href="https://www.mga.edu/veterans-military/index.php" target="_blank"><li>Veterans/Military</li></a>
-					</div>
-				</ul>
-				<ul class="dropdown">
-					<button class="dropbtn" onclick="ApplyFunction()" style="vertical-align:middle"><span>Apply Today</span></button>
-					<hr><br>
-					<div class="dropdown-content" id="Apply_myDropdown">
-						<a href="https://www.mga.edu/admissions/index.php" target="_blank"><li>Admissions Office</li></a>
-						<a href="https://www.mga.edu/financial-aid/index.php" target="_blank"><li>Financial Aid</li></a>
-						<a href="https://www.mga.edu/degrees/index.php" target="_blank"><li>Programs & Majors</li></a>
-						<a href="https://www.mga.edu/bursar/tuition-fees/index.php" target="_blank"><li>Tuition & Fees</li></a>
-					</div>
-				</ul>
-				<ul id="position">
-					<a href="https://www.mga.edu/index.php"><img class="flogo" src={% static 'irbSite/images/mga-footer-logo.png' %}/></a>
-				</ul>
+  			<!-- MGA Site Location Links -->
+  			<div class="site_nav">
+  				<ul>
+  					<a href="https://www.mga.edu/about/campuses/macon.php" target="_blank"><li>Macon |</li></a>
+  					<a href="https://www.mga.edu/about/campuses/cochran.php" target="_blank"><li>Cochran |</li></a>
+  					<a href="https://www.mga.edu/about/campuses/dublin.php" target="_blank"><li>Dublin |</li></a>
+  					<a href="https://www.mga.edu/about/campuses/eastman.php" target="_blank"><li>Eastman |</li></a>
+  					<a href="https://www.mga.edu/about/campuses/warner-robins.php" target="_blank"><li>Warner Robins</li></a>
+  				</ul>
+  				<br>
+  			</div>
 
-				<ul class="dropdown">
-					<button class="dropbtn" onclick="ContactFunction()" style="vertical-align:middle"><span>Contact</span></button>
-					<hr><br>
-					<div class="dropdown-content" id="Contact_myDropdown">
-						<a href="https://www.mga.edu/directory/frequent-numbers.php" target="_blank"><li>Contact Us</li></a>
-						<a href="https://www.mga.edu/about/maps.php" target="_blank"><li>Maps & Directions</li></a>
-						<a href="https://www.mga.edu/faculty-staff/customer-service.php" target="_blank"><li>Customer Service</li></a>
-						<a href="https://www.mga.edu/internal-audit/ethics-compliance.php" target="_blank"><li>Compliance, Ethics & Reporting Line</li></a>
-						<a href="https://www.mga.edu/technology/errors/webmaster.php" target="_blank"><li>Webmaster</li></a>
-					</div>
-				</ul>
-				<ul class="dropdown">
-					<button class="dropbtn" onclick="Info_Function()" style="vertical-align:middle"><span>Information</span></button>
-					<hr><br>
-					<div class="dropdown-content" id="Info_myDropdown">
-						<a href="https://www.mga.edu/about/index.php" target="_blank"><li>About MGA</li></a>
-						<a href="https://www.mga.edu/police/alert/index.php" target="_blank"><li>MGA Knight Alert</li></a>
-						<a href="https://www.mga.edu/police/index.php" target="_blank"><li>Police Department</li></a>
-						<a href="https://www.mga.edu/human-resources/index.php" target="_blank"><li>Employment</li></a>
-						<a href="https://www.mga.edu/student-affairs/title-ix.php" target="_blank"><li>Title IX Compliance</li></a>
-						<a href="https://www.mga.edu/student-affairs/diversity-inclusion-equity-office.php" target="_blank"><li>Diversity</li></a>
-					</div>
-				</ul>
+  			<!-- MGA Footer Links -->
+  			<div class="menu2">
+  				<ul class="dropdown">
+  					<button class="dropbtn" onclick="AudiencesFunction()" style="vertical-align:middle"><span>Audiences</span></button>
+  					<hr><br>
+  					<div class="dropdown-content" id="myDropdown">
+  						<a href="https://www.mga.edu/admissions/index.php" target="_blank"><li>Future Students</li></a>
+  						<a href="https://www.mga.edu/students/index.php" target="_blank"><li>Current Students</li></a>
+  						<a href="https://www.mga.edu/admissions/high-school-students/index.php" target="_blank"><li>Current High School Students</li></a>
+  						<a href="https://www.mga.edu/faculty-staff/index.php" target="_blank"><li>Faculty & Staff</li></a>
+  						<a href="https://www.mga.edu/foundation/index.php" target="_blank"><li>Alumni & Friends</li></a>
+  						<a href="https://www.mga.edu/veterans-military/index.php" target="_blank"><li>Veterans/Military</li></a>
+  					</div>
+  				</ul>
+  				<ul class="dropdown">
+  					<button class="dropbtn" onclick="ApplyFunction()" style="vertical-align:middle"><span>Apply Today</span></button>
+  					<hr><br>
+  					<div class="dropdown-content" id="Apply_myDropdown">
+  						<a href="https://www.mga.edu/admissions/index.php" target="_blank"><li>Admissions Office</li></a>
+  						<a href="https://www.mga.edu/financial-aid/index.php" target="_blank"><li>Financial Aid</li></a>
+  						<a href="https://www.mga.edu/degrees/index.php" target="_blank"><li>Programs & Majors</li></a>
+  						<a href="https://www.mga.edu/bursar/tuition-fees/index.php" target="_blank"><li>Tuition & Fees</li></a>
+  					</div>
+  				</ul>
+  				<ul>
+  					<a href="https://www.mga.edu/index.php"><img class="flogo" src={% static 'irbSite/images/mga-footer-logo.png' %} alt=""/></a>
+  				</ul>
 
-			</div>
-		</div>
+  				<ul class="dropdown">
+  					<button class="dropbtn" onclick="ContactFunction()" style="vertical-align:middle"><span>Contact</span></button>
+  					<hr><br>
+  					<div class="dropdown-content" id="Contact_myDropdown">
+  						<a href="https://www.mga.edu/directory/frequent-numbers.php" target="_blank"><li>Contact Us</li></a>
+  						<a href="https://www.mga.edu/about/maps.php" target="_blank"><li>Maps & Directions</li></a>
+  						<a href="https://www.mga.edu/faculty-staff/customer-service.php" target="_blank"><li>Customer Service</li></a>
+  						<a href="https://www.mga.edu/internal-audit/ethics-compliance.php" target="_blank"><li>Compliance, Ethics & Reporting Line</li></a>
+  						<a href="https://www.mga.edu/technology/errors/webmaster.php" target="_blank"><li>Webmaster</li></a>
+  					</div>
+  				</ul>
+  				<ul class="dropdown">
+  					<button class="dropbtn" onclick="Info_Function()" style="vertical-align:middle"><span>Information</span></button>
+  					<hr><br>
+  					<div class="dropdown-content" id="Info_myDropdown">
+  						<a href="https://www.mga.edu/about/index.php" target="_blank"><li>About MGA</li></a>
+  						<a href="https://www.mga.edu/police/alert/index.php" target="_blank"><li>MGA Knight Alert</li></a>
+  						<a href="https://www.mga.edu/police/index.php" target="_blank"><li>Police Department</li></a>
+  						<a href="https://www.mga.edu/human-resources/index.php" target="_blank"><li>Employment</li></a>
+  						<a href="https://www.mga.edu/student-affairs/title-ix.php" target="_blank"><li>Title IX Compliance</li></a>
+  						<a href="https://www.mga.edu/student-affairs/diversity-inclusion-equity-office.php" target="_blank"><li>Diversity</li></a>
+  					</div>
+  				</ul>
 
-		<!-- MGA Address Links & Social Media Links-->
-		<div id="address_sec">
-			<div>
-				<p>478.471.2700 | <i><a href="https://www.google.com/maps/dir/100%20university%20parkway%20macon%20ga%2031206" target="_blank">100 University Parkway | Macon, GA 31206</a></i></p>
-				<ul>
-					<li><a href="https://www.facebook.com/MiddleGeorgiaStateUniversity2" target="_blank"><img class="sIcons" src={% static 'irbSite/images/facebook.png' %}/></a></li>
-					<li><a href="https://twitter.com/MGAstateU" target="_blank"><img class="sIcons" src={% static 'irbSite/images/twitter.png' %}/></a></li>
-					<li><a href="https://www.instagram.com/mgastateu/" target="_blank"><img class="sIcons" src={% static 'irbSite/images/favicon.png' %}/></a></li>
-					<li><a href="https://www.youtube.com/user/mgaknights" target="_blank"><img class="sIcons" src={% static 'irbSite/images/favicon.png' %}/></a></li>
-				</ul>
-			</div>
-		</div>
+  			</div>
+  		</div>
 
-
-
-		<!-- Copyright Section -->
-		<div id="copyright_sec">
-			<p class="aligncenter"><i>Copyright © <span id="demo"> </span> Middle Georgia State University</i></p>
-
-			<!-- Script to get the Current Year -->
-			<script>
-				var d = new Date();
-				document.getElementById("demo").innerHTML = d.getFullYear();
-			</script>
-
-		</div>
+  		<!-- MGA Address Links & Social Media Links-->
+  		<div id="address_sec">
+  			<div>
+  				<p>478.471.2700 | <i><a href="https://www.google.com/maps/dir/100%20university%20parkway%20macon%20ga%2031206" target="_blank">100 University Parkway | Macon, GA 31206</a></i></p>
+  				<ul>
+  					<li><a href="https://www.facebook.com/MiddleGeorgiaStateUniversity2" target="_blank"><img class="sIcons" src={% static 'irbSite/images/facebook.png' %} alt=""/></a></li>
+  					<li><a href="https://twitter.com/MGAstateU" target="_blank"><img class="sIcons" src={% static 'irbSite/images/twitter.png' %} alt=""/></a></li>
+  					<li><a href="https://www.instagram.com/mgastateu/" target="_blank"><img class="sIcons" src={% static 'irbSite/images/instagram.png' %} alt=""/></a></li>
+  					<li><a href="https://www.youtube.com/user/mgaknights" target="_blank"><img class="sIcons" src={% static 'irbSite/images/youtube.png' %} alt=""/></a></li>
+  				</ul>
+  			</div>
+  		</div>
 
 
-		<!-- Script Sections -->
-		<script src="http://ajax.googleapis.com/ajax.libs/jquery/1.11.2/jquery.min.js"></script>
-		<script src={% static 'js/jquery-3.3.1.min.js'%}></script>
-		<script src={% static 'js/passwords.js'%}></script>
-		<script src={% static 'js/footer_toggle.js'%}></script>
-  </body>
+
+  		<!-- Copyright Section -->
+  		<div id="copyright_sec">
+  			<p class="aligncenter"><i>Copyright © <span id="demo"> </span> Middle Georgia State University</i></p>
+
+  			<!-- Script to get the Current Year -->
+  			<script>
+  				var d = new Date();
+  				document.getElementById("demo").innerHTML = d.getFullYear();
+  			</script>
+
+  		</div>
 
 
-</html>
+  				<!-- Script Sections -->
+  		<script src="http://ajax.googleapis.com/ajax.libs/jquery/1.11.2/jquery.min.js"></script>
+  		<script src={% static 'irbSite/js/jquery-3.3.1.min.js' %}></script>
+  		<script src={% static 'irbSite/js/validate.js'%}></script>
+  		<script src={% static 'irbSite/js/fileUpload.js'%}></script>
+  		<script src={% static 'irbSite/js/formValidation.js'%}></script>
+  		<script src={% static 'irbSite/js/footer_toggle.js'%}></script>
+
+
+  	</body>
+  </html>

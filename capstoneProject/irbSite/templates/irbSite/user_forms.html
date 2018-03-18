@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Project Forms Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Project Form page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+  <!-- HEADER -->
+			<div id="header" class="sticky">
+				<div>
+					<a href="https://www.mga.edu/"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %} alt=""/></a><!-- HEADER Logo Image -->
+				</div>
+				<div class="aligncenter">
+					<h1 class="title">Institutional Review Board</h1><!-- HEADER Title -->
+				</div>
+			</div>
+
+			<br>
+			<br>
+
+		<!-- Side Navigation Menu -->
+			<div class="menu_container">
+				<div id="menu">
+					<ul>
+						<!-- Links to the Home page, submit new project page, Forms page and the the Principal Investigator’s Handbook. -->
+						<li class="title">Menu</li>
+						<li><a href="index.html"><img class="icons" src={% static 'irbSite/images/home.png' %} alt=""/>Home</a></li>
+						<li><a href="form.html"><img class="icons" src={% static 'irbSite/images/projects.png' %} alt=""/>Submit New Project</a></li>
+						<hr>
+						<li><a href="project_forms.html"><img class="icons" src={% static 'irbSite/images/IRB-PDF-icon.png' %} alt=""/>Forms</a></li>
+						<li><a href="https://www.mga.edu/faculty-staff/governance/2016-2017/docs/standing-committees-boards/boards/institutional-review/documents/IRB%20Principal%20Investigator%20Handbook.pdf" target="_blank"><img class="icons" src={% static 'irbSite/images/handbook.png' %} alt=""/>Handbook</a></li>
+						<hr>
+						<br>
+
+						<!--Logout Button-->
+						<li><a id="mylink" href="login.html"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
+
+						<hr>
+						<br>
+
+						<!--Section that will only be displayed if user is an Admin-->
+						<li class="title">Admin</li>
+
+						<!--Links to the Admin Projects page and User page-->
+						<li><a href="admin_index.html"><img class="icons" src={% static 'irbSite/images/view_projects.png' %} alt=""/>View Projects</a></li>
+						<li><a href="user.html"><img class="icons" src={% static 'irbSite/images/users.png' %} alt=""/>Manage Users</a></li>
+					</ul>
+				</div>
+			</div>
+
+		<!--Small Container for the User page-->
+		<div class="small_container">
+			<section class="small_content">
+
+				<form id="user" action="user_forms.html" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
+
+					<!--Header for the Page-->
+					<h5>Forms</h5>
+						<br>
+
+					<!--Beginning of Table-->
+					<table id="small_table">
+						<tr>
+							<th>Project</th><!--Table Headers-->
+							<td><b>Solar Power</b></td><!--Table Data that will be displayed by queries from the database-->
+							<td><input placeholder="Edit Project Name..." type="text" id="TITLE_PROJ_NAME" oninput="this.className = ''"tabindex="1"></td><!--Field to edit the project title-->
+						</tr>
+						<tr>
+							<th>This Project qualifies for (select one):</th><!--Table Headers-->
+							<td>Expedited Review</td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to edit the projects Review type-->
+							<td>
+								<select >
+								<option oninput="this.className = ''" value="">Please Select</option>
+								<option oninput="this.className = ''" value="resource_key">Exempt Review</option>
+								<option oninput="this.className = ''" value="resource_key">Expedited Review</option>
+								<option oninput="this.className = ''" value="resource_key">Full IRB Review</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>Consent Form</th><!--Table Headers-->
+							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to upload a new form to the database-->
+							<td>
+								<input type="file" name="CONSENT" oninput="this.className = ''" multiple="true" />
+							</td>
+						</tr>
+						<tr>
+							<th>Assent Form</th><!--Table Headers-->
+							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to upload a new form to the database-->
+							<td>
+								<input type="file" name="ASSENT" oninput="this.className = ''" multiple="true" />
+							</td>
+						</tr>
+						<tr>
+							<th>Surveys</th><!--Table Headers-->
+							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to upload a new form to the database-->
+							<td>
+								<input id="file" type="file" name="SURVEY" oninput="this.className = ''" multiple="true" />
+							</td>
+						</tr>
+						<tr>
+							<th>Methodology</th><!--Table Headers-->
+							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to upload a new form to the database-->
+							<td>
+								<input id="file" type="file" name="DET_RSC_METH" oninput="this.className = ''" multiple="true" />
+							</td>
+						</tr>
+						<tr>
+							<th>Grant Proposal</th><!--Table Headers-->
+							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to upload a new form to the database-->
+							<td>
+								<input id="file" type="file" name="GRANT_PROPSAL" oninput="this.className = ''" multiple="true" />
+							</td>
+						</tr>
+						<tr>
+							<th>Extenuating circumstances</th><!--Table Headers-->
+							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to upload a new form to the database-->
+							<td>
+								<input id="file" type="file" name="EXT_CIRCUM" oninput="this.className = ''" multiple="true" />
+							</td>
+						</tr>
+						<tr>
+							<th>Principal Investigator Signature</th><!--Table Headers-->
+							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to upload a new form to the database-->
+							<td>
+								<input id="file" type="file" name="PRIN_INV"oninput="this.className = ''" multiple="true" />
+							</td>
+						</tr>
+						<tr>
+							<th>Faculty Supervisor Signature</th><!--Table Headers-->
+							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
+
+							<!--Field to upload a new form to the database-->
+							<td>
+								<input id="file" type="file" name="FAC_SUP" oninput="this.className = ''" multiple="true" />
+							</td>
+						</tr>
+					</table><!--End of the table-->
+
+					<br>
+
+					<!--Link to the description section of the project-->
+					<div class="fleft">
+						<a href="user_description.html">Description</a>
+					</div>
+
+					<!--A button to update the database with the new information that was submitted-->
+					<div  id="user_content" class="fright">
+						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Update</button>
+					</div>
+					<br>
+					<br>
+				</form>
+			</section>
+
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+
+	{% endblock %}

@@ -32,7 +32,7 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-    document.getElementById("contact").submit();
+    document.getElementById("user").submit();
     return false;
   }
   // Otherwise, display the correct tab:
@@ -43,7 +43,7 @@ function validateForm() {
   // This function deals with validation of the form fields
   var x, y, i, t, s, valid = true;
   x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
+  y = x[currentTab].getElementsByTagName("text");
   t = x[currentTab].getElementsByTagName("textarea");
   s = x[currentTab].getElementsByTagName("select");
     // A loop that checks every input and textarea field in the current tab:
