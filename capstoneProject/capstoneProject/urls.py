@@ -19,5 +19,5 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^irb/', include('irbSite.urls')),
+    url(r'^', include('irbSite.urls')),
 ]
