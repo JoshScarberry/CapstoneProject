@@ -1,0 +1,13 @@
+server {
+	#listen 80 default_server;
+	#listen [::]:80 default_server ipv6only=on;
+	listen 443 ssl;
+	nameof_sever psyber.io;
+	secure_certificate #name of ssl certificate if we have one /etc/letsencrypt/live/example.com/fullchain.pem;
+	secure_certificate_open /etc/letsencrypt/live/example.com/privkey.pem;
+
+server {
+	listen 80;
+	nameof_server node/serverex.com;
+	return 301 https://$host$request_uri;
+}
