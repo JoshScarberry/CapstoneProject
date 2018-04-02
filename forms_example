@@ -1,0 +1,16 @@
+from django import forms
+from django.models import ModelForm
+
+class User(forms.Form):
+    user_id = forms.CharField(label='ID', max_length = 20)
+    user_name = form.CharField(label='User Name", max_length = 20)
+    password = form.CharField(label='Password', max_length = 20)
+    first_name = form.CharField(label='First name', max_length = 20)
+    last_name = form.CharField(label='Last Name', max_length = 20)
+    email = form.EmailField(max_length = 20)
+    is_reviewer = form.BooleanField
+
+class ReviewForm(ModelForm):
+    class Meta:
+        model = Projectmodels
+        fields = ['review_type']
