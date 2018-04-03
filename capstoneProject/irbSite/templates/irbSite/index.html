@@ -4,7 +4,7 @@
   <title>Middle Georgia State University | IRB User Page</title>
   <meta name="Institutional Review Board (IRB)" content="This is the IRB User page" />
 
-  <script type="text/javascript"> <!--Testing a logout Function-->
+  <!--<script type="text/javascript"> <!- -Testing a logout Function- ->
 
         // Wait for the page to load first
 		window.onload = function logout() {
@@ -24,7 +24,7 @@
 			  hide_error();
 			}
 		}
-		 </script>
+	</script>-->
 
 	{% endblock %}
 
@@ -50,8 +50,8 @@
 					<ul>
 						<!-- Links to the Home page, submit new project page, Forms page and the the Principal Investigator’s Handbook. -->
 						<li class="title">Menu</li>
-						<li><a href="index.html"><img class="icons" src={% static 'irbSite/images/home.png' %} alt=""/>Home</a></li>
-						<li><a href="form.html"><img class="icons" src={% static 'irbSite/images/projects.png' %} alt=""/>Submit New Project</a></li>
+						<li><a href="{% url 'irbSite:index' %}"><img class="icons" src={% static 'irbSite/images/home.png' %} alt=""/>Home</a></li>
+						<li><a href="{% url 'irbSite:form' %}"><img class="icons" src={% static 'irbSite/images/projects.png' %} alt=""/>Submit New Project</a></li>
 						<hr>
 						<li><a href="project_forms.html"><img class="icons" src={% static 'irbSite/images/IRB-PDF-icon.png' %} alt=""/>Forms</a></li>
 						<li><a href="https://www.mga.edu/faculty-staff/governance/2016-2017/docs/standing-committees-boards/boards/institutional-review/documents/IRB%20Principal%20Investigator%20Handbook.pdf" target="_blank"><img class="icons" src={% static 'irbSite/images/handbook.png' %} alt=""/>Handbook</a></li>
@@ -80,7 +80,7 @@
 			<div class="small_container">
 				<section class="small_content">
 
-					<form id="user" action="user.html" method="post">
+					<form id="user"  method="post">
 
 						<!--Header for the Page-->
 						<h5>Your Projects</h5>
@@ -92,8 +92,10 @@
 						<!--Beginning of Table-->
 						<table id="small_table">
 
-						  <tr>
-							<!--Table Headers-->
+					
+							{% csrf_token %}
+						  <!--<tr>
+							<!- -Table Headers- ->
 							<th>Projects</th>
 							<th>Date Submitted</th>
 							<th>Status</th>
@@ -101,27 +103,27 @@
 							<th>Actions</th>
 						  </tr>
 						  <tr>
-							<!--Table Data that will be displayed by queries from the database-->
+							<!- -Table Data that will be displayed by queries from the database- ->
 							<td>Solar Power</td>
 							<td>12/01/17</td>
 							<td>Pending</td>
 							<td></td>
-							<td><a href="user_forms.html">Edit</a></td><!--User can click to look at the project-->
+							<td><a href="user_forms.html">Edit</a></td><!- -User can click to look at the project- ->
 						  </tr>
 						  <tr>
 							<td>ThinkPad</td>
 							<td>01/11/18</td>
 							<td>Approved</td>
 							<td>01/16/18</td>
-							<td><a href="user_forms.html">Edit</a></td><!--User can click to look at the project-->
+							<td><a href="user_forms.html">Edit</a></td><!- -User can click to look at the project- ->
 						  </tr>
 						  <tr>
 							<td>IRB Site</td>
 							<td>02/21/18</td>
 							<td>Incomplete</td>
 							<td></td>
-							<td><a href="user_forms.html">Edit</a></td><!--User can click to look at the project-->
-						  </tr>
+							<td><a href="user_forms.html">Edit</a></td><!- -User can click to look at the project- - >
+						</tr>-->
 						</table>
 					</form>
 				</section>
