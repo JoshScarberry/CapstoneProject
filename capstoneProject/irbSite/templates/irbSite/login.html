@@ -11,11 +11,12 @@
 	<!-- HEADER -->
 			<div id="header" class="sticky">
 				<div>
-					<a href="login.html"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %}/></a>
+					<a href="login.html"><img class="logo" src="{% static 'irbSite/images/mga-header-logo.png' %}"/></a>
 				</div>
 
 				<div>
 					<h1 class="title">Institutional Review Board</h1>
+
 				</div>
 			</div>
 
@@ -25,13 +26,12 @@
 		<div class="login_content" id="item1">
 			<section class="login_container">
 
-				<form id="contact" action="index.html" method="post">
+				<form id="contact" method="post">
 
 					<h3>Login</h3><br>
 
-					{% csrf_token %}
 					{{ form.as_p }}
-
+					{% csrf_token %}
 
 					<!-- Display password CheckBox-->
 					<fieldset>
@@ -44,20 +44,23 @@
 						<input type="checkbox" name="checkbox" id="remember_Me" value="Remember"><label for="irb_form"> Remember Me</label>
 
 						<!-- Forgot Password page -->
-						<a class="fright" href="reset_login.html">Forgot Password</a>
+						<a class="fright" href={% url 'password_reset' %}>Forgot Password</a>
 					</fieldset>
 
 					<!-- Submit Data Button-->
 					<fieldset>
+						<!--<button name="submit" value="Login" class="btn btn-default">Sign In</button>-->
 						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Sign In</button>
 					</fieldset>
 
 					<!-- Register Account Page -->
 					<fieldset>
 						<p class="fleft">Do you have an account?</p>
-						<a class="linkspace" href="register.html">Sign Up</a>
+						<!--<a class="linkspace" href="register.html">Sign Up</a>-->
+						<a class="linkspace" href="{% url 'irbSite:register' %}">Sign Up</a>
 					</fieldset>
 				</form>
+
 			</section>
 		</div>
 		<!-- End of login form -->

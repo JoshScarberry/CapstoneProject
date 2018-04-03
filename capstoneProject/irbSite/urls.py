@@ -1,25 +1,21 @@
 from django.conf.urls import url
-from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
-from django.contrib.auth.views import login
+from django.core.urlresolvers import reverse_lazy
 
+
+app_name = 'irbSite'
 
 urlpatterns = [
-	#url(r'^$', views.home),
-	url(r'^$', login, {'template_name': 'irbSite/login.html'}),
-	path('form.html', views.form),
-	path('register.html', views.register),
-	path('reset_login.html', views.reset_login),
-	path('admin.html', views.admin),
-	path('confirmation.html', views.confirmation),
-	path('admin_description', views.admin_description),
-	path('admin_forms.html', views.admin_forms),
-	path('admin_index.html', views.admin_index),
-	path('index.html', views.index),
-	path('project_forms.html', views.project_forms),
-	path('user.html', views.user),
-	path('user_description.html', views.user_description),
-	path('user_forms.html', views.user_forms)
+    url(r'^$', auth_views.LoginView.as_view(template_name = 'irbSite/login.html'),name='login'),
+    url(r'^logout/',auth_views.LogoutView.as_view(),name='logout'),
+    url(r'^password_reset',auth_views.PasswordResetView.as_view(),name='reset'),
+    url(r'^register/',views.Registration.as_view(),name='register'),
+    url(r'^index/',views.Index.as_view(),name='index'),
+    url(r'^test/', views.TestPage.as_view(),name='test'),
+    #url(r'^form/',views.Form.as_view(),name='form'),
+
+
 
 
 ]

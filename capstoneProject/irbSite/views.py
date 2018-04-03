@@ -1,55 +1,26 @@
-from django.shortcuts import render, HttpResponse
+
+from django.shortcuts import render
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import CreateView, ListView, TemplateView, View
+from . import forms
+
 
 # Create your views here.
-def home(request):
-	#return HttpResponse('Home page works!!!')
 
-	# example variables
-	name = 'madeUpName'
-	anything = 'anyvalue'
+class Index(TemplateView):
+    template_name = 'irbSite/index.html'
+    form_class = forms.IndexForm
 
-	# example of args to pass as dictionaries
-	args = {'myname': name, 'anyvalue': anything}
-	return render(request, 'irbSite/login.html', args)
 
-def form(request):
-	return render(request, 'irbSite/form.html')
+class Registration(CreateView):
+    template_name = 'irbSite/register.html'
+    form_class = forms.UserCreateForm
+    success_url = reverse_lazy('irbSite:login')
 
-def register(request):
-	return render(request, 'irbSite/register.html')
+class TestPage(TemplateView):
+    template_name = 'irbSite/test.html'
 
-def reset_login(request):
-	return render(request, 'irbSite/reset_login.html')
-
-def admin(request):
-	return render(request, 'irbSite/admin.html')
-
-def confirmation(request):
-	return render(request, 'irbSite/confirmation.html')
-
-def admin_description(request):
-	return render(request, 'irbSite/admin_description.html')
-
-def admin_forms(request):
-	return render(request, 'irbSite/admin_forms.html')
-
-def admin_index(request):
-	return render(request, 'irbSite/admin_index.html')
-
-def confirmation(request):
-	return render(request, 'irbSite/confirmation.html')
-
-def index(request):
-	return render(request, 'irbSite/index.html')
-
-def project_forms(request):
-	return render(request, 'irbSite/project_forms.html')
-
-def user_description(request):
-	return render(request, 'irbSite/user_description.html')
-
-def user_forms(request):
-	return render(request, 'irbSite/user_forms.html')
-
-def user(request):
-	return render(request, 'irbSite/user.html')
+#class Form(TeplateView):
+#    template_name = 'irbSite/form.html'
+#    form_class = ''
+#    success_url = ''
