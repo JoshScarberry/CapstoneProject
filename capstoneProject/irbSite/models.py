@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib import auth
 from django.contrib.auth.models import User
-
-
+from django.conf import settings
 
 
 # Create your models here.
@@ -11,54 +10,47 @@ class User(auth.models.User, auth.models.PermissionsMixin):
     def __str__(self):
         return "@{}".format(self.username)
 
+#https://stackoverflow.com/questions/3641483/django-user-model-and-custom-primary-key-field
+#class IRBuser(AbstractBaseUser, auth.models.PermissionMixin):
+#    first_name = models.Charfield(max_length = 20)
+#    last_name = models.Charfield(max_length = 20)
+#    email = models.EmailField(max_length = 20, unique = True, primary_key = True)
+#    password = Charfield(max_length = 20)
+
 class Project(models.Model):
     project_id = models.AutoField(primary_key=True)
-    project_name = models.CharField(max_length = 20)
+    project_name = models.CharField(max_length = 20, unique = True)
+    last_modified = models.DateField(auto_now=True, blank = True)
 
-    # https://stackoverflow.com/questions/31130706/dropdown-in-django-model
-    # project qualifies for
-    #REVIEW_TYPE = (
-    #    ('exempt review', 'Exempt Review'),
-    #    ('expedited review', 'Expedited Review'),
-    #    ('full irb review', 'Full IRB Review'),
-    #)
-    #review_type = forms.CharField(max_length = 10, choices = REVIEW_TYPE)
-    review_type = models.CharField(max_length = 10)
+    # project qualified for
+    REVIEW_TYPE = (
+        ('exempt review' , 'Exempt Review'),
+        ('expedited review', 'Expedited Review'),
+        ('full irb review', 'Full IRB Review'),)
+    review_type = models.CharField(max_length = 20, choices = REVIEW_TYPE, blank = True)
 
     # https://docs.djangoproject.com/en/2.0/topics/http/file-uploads/
-    consent_form = models.FileField()
-    assent_form = models.FileField()
-    surveys_form = models.FileField()
-    methodology_form = models.FileField()
-    grant_proposal_form = models.FileField()
-    ext_circumstances_form = models.FileField()
-    principal_investigator_signature = models.FileField()
-    faculty_supervisor_signature = models.FileField()
-
-    funding = models.CharField(max_length = 500)
-
-    # https://stackoverflow.com/questions/16356289/how-to-show-datepicker-calendar-on-datefield
-    #start_date = forms.DateField(widget = forms.TextInput(attrs =
-    #                            {
-    #                                'class' : 'datepicker'
-    #                            }))
-    #end_date = forms.DateField(widget = forms.TextInput(attrs =
-    #                            {
-    #                                'class' : 'datepicker'
-    #                            }))
-
-    start_date = models.DateField()
-    end_date = models.DateField()
-
-    purpose = models.CharField(max_length = 500 )
-    methodology = models.CharField(max_length = 500 )
-    benefits = models.CharField(max_length = 500 )
-    risk = models.CharField(max_length = 500 )
-    recruited = models.CharField(max_length = 500 )
-    why_identify = models.CharField(max_length = 500 )
-    how_data_store = models.CharField(max_length = 500 )
-    consent_process = models.CharField(max_length = 500 )
-    review_notes = models.CharField(max_length = 500)
-    is_complete = models.BooleanField(default = False)
-    is_approved = models.BooleanField(default = False)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    consent_form = models.FileField(blank = True)
+    assent_form = models.FileField(blank = True)
+    surveys_form = models.FileField(blank = True)
+    methodology_form = models.FileField(blank = True)
+    grant_proposal_form = models.FileField(blank = True)
+    ext_circumstances_form = models.FileField(blank = True)
+    principal_investigator_signature = models.FileField(blank = True)
+    faculty_supervisor_signature = models.FileField(blank = True)
+    funding = models.CharField(max_length = 500, blank = True)
+    start_date = models.DateField(blank = True, null = True)
+    end_date = models.DateField(blank = True, null = True)
+    purpose = models.CharField(max_length = 500, blank = True )
+    methodology = models.CharField(max_length = 500, blank = True )
+    benefits = models.CharField(max_length = 500, blank = True )
+    risk = models.CharField(max_length = 500, blank = True )
+    recruited = models.CharField(max_length = 500, blank = True )
+    why_identify = models.CharField(max_length = 500, blank = True )
+    how_data_store = models.CharField(max_length = 500, blank = True )
+    consent_process = models.CharField(max_length = 500, blank = True )
+    review_notes = models.CharField(max_length = 500, blank = True)
+    date_submitted = models.DateField(auto_now_add = True)
+    is_complete = models.BooleanField(default = False,blank = True)
+    is_approved = models.BooleanField(default = False, blank = True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

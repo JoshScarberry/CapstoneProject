@@ -22,6 +22,9 @@
 
 		<!-- CONTENT-->
 
+		{% block nav %}
+		{% endblock %}
+
 		<!-- Beginning of login form -->
 		<div class="login_content" id="item1">
 			<section class="login_container">
@@ -29,9 +32,9 @@
 				<form id="contact" method="post">
 
 					<h3>Login</h3><br>
-
-					{{ form.as_p }}
 					{% csrf_token %}
+					{{ form.as_p }}
+
 
 					<!-- Display password CheckBox-->
 					<fieldset>
@@ -49,8 +52,9 @@
 
 					<!-- Submit Data Button-->
 					<fieldset>
-						<!--<button name="submit" value="Login" class="btn btn-default">Sign In</button>-->
+
 						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Sign In</button>
+
 					</fieldset>
 
 					<!-- Register Account Page -->

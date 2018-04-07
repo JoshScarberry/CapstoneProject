@@ -28,6 +28,8 @@
 
 	{% endblock %}
 
+
+
 	{% block body%}
 	{% load static %}
 
@@ -59,17 +61,17 @@
 						<br>
 
 						<!--Logout Button-->
-						<li><a id="mylink" href="login.html"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
+						<li><a id="mylink" href="{% url 'irbSite:logout' %}"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
 
 						<hr>
 						<br>
 
+						{% if user.is_staff == True %}
 						<!--Section that will only be displayed if user is an Admin-->
-						<li class="title">Admin</li>
+						<p>Click here to access Admin View</p>
+						<li class="title"><a href="{% url 'irbSite:irbadmin' %}"</a>Admin View</li>
+						{% endif %}
 
-						<!--Links to the Admin Projects page and User page-->
-						<li><a href="admin_index.html"><img class="icons" src={% static 'irbSite/images/view_projects.png' %} alt=""/>View Projects</a></li>
-						<li><a href="user.html"><img class="icons" src={% static 'irbSite/images/users.png' %} alt=""/>Manage Users</a></li>
 					</ul>
 				</div>
 			</div>
@@ -80,9 +82,10 @@
 			<div class="small_container">
 				<section class="small_content">
 
-					<form id="user"  method="post">
-
+					<form id="user" method="post">
+					{% csrf_token %}
 						<!--Header for the Page-->
+						<h1>Welcome {{user.username}}</h1>
 						<h5>Your Projects</h5>
 							<br>
 								<p>Below is a list of projects you have submitted.</p>
@@ -92,38 +95,30 @@
 						<!--Beginning of Table-->
 						<table id="small_table">
 
-					
-							{% csrf_token %}
-						  <!--<tr>
-							<!- -Table Headers- ->
-							<th>Projects</th>
-							<th>Date Submitted</th>
-							<th>Status</th>
-							<th>Approval Date</th>
-							<th>Actions</th>
-						  </tr>
-						  <tr>
-							<!- -Table Data that will be displayed by queries from the database- ->
-							<td>Solar Power</td>
-							<td>12/01/17</td>
-							<td>Pending</td>
-							<td></td>
-							<td><a href="user_forms.html">Edit</a></td><!- -User can click to look at the project- ->
-						  </tr>
-						  <tr>
-							<td>ThinkPad</td>
-							<td>01/11/18</td>
-							<td>Approved</td>
-							<td>01/16/18</td>
-							<td><a href="user_forms.html">Edit</a></td><!- -User can click to look at the project- ->
-						  </tr>
-						  <tr>
-							<td>IRB Site</td>
-							<td>02/21/18</td>
-							<td>Incomplete</td>
-							<td></td>
-							<td><a href="user_forms.html">Edit</a></td><!- -User can click to look at the project- - >
-						</tr>-->
+						{% if user.is_authenticated %}
+
+							{% if project_list %}
+								<tr>
+									<th>Project Name</th>
+									<th>Is Complete</th>
+									<th>Is Approved</th>
+								</tr>
+								{% for project in project_list  %}
+								<tr>
+									<th><a href="{% url 'irbSite:editProject' %}">{{project.project_name}}</a></th>
+									<th>{{project.is_complete}}</th>
+									<th>{{project.is_approved}}</th>
+								{% endfor %}
+								</tr>
+							{% else %}
+								<p>You dont have any current IRB forms. Select "Submit New Project" on the left to start one.<p>
+							{% endif %}
+
+						{% else %}
+							<p>You are not logged in</p>
+
+						{% endif %}
+
 						</table>
 					</form>
 				</section>

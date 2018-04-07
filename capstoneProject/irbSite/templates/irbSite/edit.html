@@ -43,12 +43,11 @@
 				<hr>
 				<br>
 
-				{% if user.is_staff == True %}
-				<!--Section that will only be displayed if user is an Admin-->
-				<p>Click here to access Admin View</p>
-				<li class="title"><a href="{% url 'irbSite:irbadmin' %}"</a>Admin View</li>
-				{% endif %}
-
+        {% if user.is_staff == True %}
+        <!--Section that will only be displayed if user is an Admin-->
+        <p>Click here to access Admin View</p>
+        <li class="title"><a href="{% url 'irbSite:irbadmin' %}"</a>Admin View</li>
+        {% endif %}
 
 			</ul>
 		</div>

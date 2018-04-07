@@ -121,5 +121,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
+LOGIN_URL = 'irbSite:login'
 LOGIN_REDIRECT_URL = 'irbSite:index'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'irbSite:login'
