@@ -36,17 +36,17 @@
 						<br>
 
 						<!--Logout Button-->
-						<li><a id="mylink" href="login.html"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
+						<li><a id="mylink" href="{% url 'irbSite:logout' %}"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
 
 						<hr>
 						<br>
 
+						{% if user.is_staff == True %}
 						<!--Section that will only be displayed if user is an Admin-->
-						<li class="title">Admin</li>
+						<p>Click here to access Admin View</p>
+						<li class="title"><a href="{% url 'irbSite:irbadmin' %}"</a>Admin View</li>
+						{% endif %}
 
-						<!--Links to the Admin Projects page and User page-->
-						<li><a href="admin_index.html"><img class="icons" src={% static 'irbSite/images/view_projects.png' %} alt=""/>View Projects</a></li>
-						<li><a href="user.html"><img class="icons" src={% static 'irbSite/images/users.png' %} alt=""/>Manage Users</a></li>
 					</ul>
 				</div>
 			</div>
@@ -59,75 +59,34 @@
 
 				<h5>Forms - Admin Review</h5>
 
-				<form id="user" action="admin_forms.html" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
+				<form id="user" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
+				{% csrf_token %}
 
 					<br>
 
 					<table id="small_table"><!--Beginning of Table-->
 						<tr>
-							<th>Project</th><!--Header Column-->
-							<td><b>Solar Power</b></td><!--Table Data that will be displayed by queries from the database-->
+							<th>Project Name</th>
+							<th>Review type</th>
+							<th>Submitter's name</th>
 						</tr>
-						<tr>
-							<th>Date Submitted</th><!--Header Column-->
-							<td>12/01/17</td><!--Table Data that will be displayed by queries from the database-->
-						</tr>
-						<tr>
-							<th>Status</th><!--Header Column-->
-							<td>Pending</td><!--Table Data that will be displayed by queries from the database-->
-						</tr>
-						<tr>
-							<th>Consent Form</th><!--Header Column-->
-							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
-						</tr>
-						<tr>
-							<th>Assent Form</th><!--Header Column-->
-							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
-						</tr>
-						<tr>
-							<th>Surveys</th><!--Header Column-->
-							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
-
-						</tr>
-						<tr>
-							<th>Methodology</th><!--Header Column-->
-							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
-						</tr>
-						<tr>
-							<th>Grant Proposal</th><!--Header Column-->
-							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
-						</tr>
-						<tr>
-							<th>Extenuating circumstances</th><!--Header Column-->
-							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
-						</tr>
-						<tr>
-							<th>Faculty Supervisor Signature</th><!--Header Column-->
-							<td><img class="small_icons" src="images/forms.png" alt=""/></td><!--Table Data that will be displayed by queries from the database-->
-						</tr>
-						<tr>
-							<th>Notes</th><!--Header Column-->
-							<td><textarea name="NOTES" oninput="this.className = ''" placeholder="Notes..." tabindex="7" required></textarea></td><!--Text area for comments by Admin-->
-						</tr>
-						<tr>
-							<th>Actions</th><!--Header Column-->
-							<td>
-								<select required><!--Dropdown box for status selection-->
-									<option oninput="this.className = ''" value="">Please Select</option>
-									<option oninput="this.className = ''" value="INCOMPLETE">Incomplete</option>
-									<option oninput="this.className = ''" value="AWAITING">Awaiting</option>
-									<option oninput="this.className = ''" value="IN_WORK">In Work</option>
-									<option oninput="this.className = ''" value="APPROVED">Approved</option>
-									<option oninput="this.className = ''" value="DENIED">Denied</option>
-								</select>
-							</td>
-						</tr>
+						{% if project_list %}
+							{% for project in project_list %}
+							<tr>
+								<th>{{project.project_name}}</th>
+								<th>{{project.review_type}}</th>
+								<th>{{user.first_name}}</th>
+							</tr>
+							{% endfor %}
+						{% else %}
+							<p>There are no IRB projects ready for review</p>
+						{% endif %}
 					</table><!--End of Table-->
 
 					<br>
 					<!--Link to the description section of the project to be reviewed-->
 					<div class="fleft">
-						<a href="admin_description.html">Description</a>
+						<a href="">Description</a>
 					</div>
 
 					<!--A button to update the database with the new information that was submitted-->
