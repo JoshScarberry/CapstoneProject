@@ -54,3 +54,6 @@ class Project(models.Model):
     is_complete = models.BooleanField(default = False,blank = True)
     is_approved = models.BooleanField(default = False, blank = True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.project_name

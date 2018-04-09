@@ -43,8 +43,8 @@
 
 						{% if user.is_staff == True %}
 						<!--Section that will only be displayed if user is an Admin-->
-						<p>Click here to access Admin View</p>
-						<li class="title"><a href="{% url 'irbSite:irbadmin' %}"</a>Admin View</li>
+						<p> Click here to access Admin View</p>
+						<li class="title"><a href="{% url 'irbSite:irbadmin' %}"></a>Admin View</li>
 						{% endif %}
 
 					</ul>
@@ -71,11 +71,12 @@
 							<th>Submitter's name</th>
 						</tr>
 						{% if project_list %}
-							{% for project in project_list %}
+							{% for project in object_list %}
+							
 							<tr>
 								<th>{{project.project_name}}</th>
 								<th>{{project.review_type}}</th>
-								<th>{{user.first_name}}</th>
+								<th>{{userNames.first_name}}</th>
 							</tr>
 							{% endfor %}
 						{% else %}
