@@ -3,32 +3,7 @@
 	{% block head %}
   <title>Middle Georgia State University | IRB User Page</title>
   <meta name="Institutional Review Board (IRB)" content="This is the IRB User page" />
-
-  <!--<script type="text/javascript"> <!- -Testing a logout Function- ->
-
-        // Wait for the page to load first
-		window.onload = function logout() {
-			var a = document.getElementById("mylink");
-
-		    a.onclick = function logout() {
-
-			  var req = new XMLHttpRequest();
-			  req.open("POST", "login.html", true);
-			  req.withCredentials = true;
-			  req.send();
-
-			  document.getElementById('log_form').style.display = '';
-			  document.getElementById('logged_user').style.display = 'none';
-			  document.getElementById('logout_button').style.display = 'none';
-			  document.getElementById('content').style.display = 'none';
-			  hide_error();
-			}
-		}
-	</script>-->
-
 	{% endblock %}
-
-
 
 	{% block body%}
 	{% load static %}
@@ -69,7 +44,8 @@
 						{% if user.is_staff == True %}
 						<!--Section that will only be displayed if user is an Admin-->
 						<p>Click here to access Admin View</p>
-						<li class="title"><a href="{% url 'irbSite:irbadmin' %}"</a>Admin View</li>
+						<li class="title"><a href="{% url 'irbSite:irbadmin' %}">Admin View</a></li>
+						{% else %}
 						{% endif %}
 
 					</ul>
@@ -89,7 +65,8 @@
 						<h5>Your Projects</h5>
 							<br>
 								<p>Below is a list of projects you have submitted.</p>
-								<p>You can check the status of a project and edit it.</p>
+								<p>You can check the status of an incomplete project and edit it.</p>
+								<p>Completed submission are locked for review. If you would like to edit them again, contact the IRB board.</p>
 							<br>
 
 						<!--Beginning of Table-->
@@ -104,10 +81,19 @@
 									<th>Is Approved</th>
 								</tr>
 								{% for project in project_list  %}
-								<tr>
-									<th><a href="{% url 'irbSite:editProject' %}">{{project.project_name}}</a></th>
-									<th>{{project.is_complete}}</th>
-									<th>{{project.is_approved}}</th>
+									{% if project.is_complete == False %}
+										<tr>
+											<th><a href="{% url 'irbSite:editProject' pk=project.project_id %}">{{project.project_name}}</a></th>
+											<th>{{project.is_complete}}</th>
+											<th>{{project.is_approved}}</th>
+										</tr>
+										{% else %}
+										<tr>
+											<th>{{project.project_name}}</a></th>
+											<th>{{project.is_complete}}</th>
+											<th>{{project.is_approved}}</th>
+										</tr>
+									{% endif %}
 								{% endfor %}
 								</tr>
 							{% else %}

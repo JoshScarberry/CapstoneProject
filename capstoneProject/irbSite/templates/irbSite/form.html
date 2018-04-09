@@ -9,7 +9,6 @@
 	{% block body %}
 	{% load static %}
 
-
 	<!-- HEADER -->
 	<div id="header" class="sticky">
 		<div>
@@ -46,7 +45,7 @@
 				{% if user.is_staff == True %}
 				<!--Section that will only be displayed if user is an Admin-->
 				<p>Click here to access Admin View</p>
-				<li class="title"><a href="{% url 'irbSite:irbadmin' %}"</a>Admin View</li>
+				<li class="title"><a href="{% url 'irbSite:irbadmin' %}"></a>Admin View</li>
 				{% endif %}
 
 
@@ -195,12 +194,6 @@
 			<div style="overflow:auto;">
 				<div class="fleft">
 					<button type="submit" id="saveBtn" onclick="save">Save</button><!--Save Button to save Progress-->
-					<input type="submit" class'bnt btn-primary' value="SUBMIT FORM">
-
-
-
-
-
 				</div>
 				<div style="float:right;">
 					<button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button><!--Previous Button to save Progress-->
