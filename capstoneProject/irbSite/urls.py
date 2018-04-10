@@ -22,7 +22,9 @@ urlpatterns = [
     url(r'^edit/(?P<pk>\d+)/', views.EditProject.as_view(), name = 'editProject'),
 
     url(r'^irbadmin/', views.IrbAdmin.as_view(), name = 'irbadmin'),
-    
+
+    url(r'^review/(?P<pk>\d+)/', views.ReviewProject.as_view(), name = 'reviewProject'),
+
     url(r'^test/', views.TestPage.as_view(),name='test'),
 
 ]

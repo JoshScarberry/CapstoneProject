@@ -36,7 +36,7 @@
 						<br>
 
 						<!--Logout Button-->
-						<li><a id="mylink" href="login.html"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
+						<li><a id="mylink" href="{% url 'irbSite:logout' %}"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
 
 						<hr>
 						<br>
@@ -57,14 +57,19 @@
 		<div class="user_content">
 			<section class="user_container">
 
-				<form id="user" action="confirmation.html" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
-
+				<form id="user" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
+				{% csrf_token %}
 					<h5>Projects</h5>
 					<br>
+					{% if user_list %}
+						{% for users in user_list %}
+							{{user.first_name}}
+						{% endfor %}
+					{% endif %}
 
 					<table id="small_table">
 						<tr>
-							<th>IRB Projects</th><!--Header Column-->
+							<th>Submitted IRB Projects</th><!--Header Column-->
 							<th>Date Submitted</th><!--Header Column-->
 							<th>Approval Date</th><!--Header Column-->
 							<th>Status</th><!--Header Column-->
@@ -72,33 +77,29 @@
 							<th>Submitter Last Name</th><!--Header Column-->
 							<th>Review</th><!--Header Column-->
 						</tr>
-						<tr>
-							<td>Solar Power</td><!--Table Data that will be displayed by queries from the database-->
-							<td>12/01/17</td><!--Table Data that will be displayed by queries from the database-->
-							<td></td><!--Table Data that will be displayed by queries from the database-->
-							<td>In Work</td><!--Table Data that will be displayed by queries from the database-->
-							<td>Jeff</td><!--Table Data that will be displayed by queries from the database-->
-							<td>Davis</td><!--Table Data that will be displayed by queries from the database-->
-							<td><a href="admin_forms.html">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
-						</tr>
-						<tr>
-							<td>ThinkPad</td><!--Table Data that will be displayed by queries from the database-->
-							<td>03/25/17</td><!--Table Data that will be displayed by queries from the database-->
-							<td>05/16/17</td><!--Table Data that will be displayed by queries from the database-->
-							<td>Approved</td><!--Table Data that will be displayed by queries from the database-->
-							<td>Mike</td><!--Table Data that will be displayed by queries from the database-->
-							<td>Dawson</td><!--Table Data that will be displayed by queries from the database-->
-							<td><a href="admin_forms.html">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
-						</tr>
-						<tr>
-							<td>IRB Site</td><!--Table Data that will be displayed by queries from the database-->
-							<td>12/01/17</td><!--Table Data that will be displayed by queries from the database-->
-							<td></td><!--Table Data that will be displayed by queries from the database-->
-							<td>In Work</td><!--Table Data that will be displayed by queries from the database-->
-							<td>Megan</td><!--Table Data that will be displayed by queries from the database-->
-							<td>Collins</td><!--Table Data that will be displayed by queries from the database-->
-							<td><a href="admin_forms.html">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
-						</tr>
+						{% if project_list %}
+							{% for project in project_list %}
+								<tr>
+									<td>{{ project.project_name }}</td><!--Table Data that will be displayed by queries from the database-->
+									<td>{{  project.date_submitted }}</td><!--Table Data that will be displayed by queries from the database-->
+									{% if project.is_approved %}
+										<td>{{ project.project_name }}</td><!--Table Data that will be displayed by queries from the database                  Needs approved_date in Project model-->
+									{% else %}
+										<td>Not yet approved</td>
+									{% endif %}
+									{% if project.is_approved %}
+										<td>Approved</td><!--Table Data that will be displayed by queries from the database-->
+									{% else %}
+										<td>Awaiting Review</td>
+									{% endif %}
+									<td>{{ user.first_name }}</td><!--Table Data that will be displayed by queries from the database-->
+									<td>{{ user.last_name }}</td><!--Table Data that will be displayed by queries from the database-->
+									<td><a href="{% url 'irbSite:reviewProject' pk=project.project_id %}">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
+								</tr>
+							{% endfor %}
+						{% else %}
+							<p>There are currently no completed projects for review</p>
+						{% endif %}
 					</table><!--End of Table-->
 
 					<br>
