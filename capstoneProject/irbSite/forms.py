@@ -45,3 +45,13 @@ class ProjectForm(ModelForm):
                     'how_data_store' : forms.Textarea(attrs={'placeholder' : 'Describe how data collected for this project will be securely stored and how and when it will be destroyed'}),
                     'consent_process' : forms.Textarea(attrs={'placeholder' : 'Describe the informed consent process'}),
                     'review_notes' : forms.Textarea(attrs={'placeholder' : 'Add your notes for this submission here'})}
+
+# Clone of ProjectForm + review_notes
+class ProjectReviewForm(ModelForm):
+    class Meta():
+        model = Project
+        fields = ('project_name', 'review_type', 'consent_form', 'assent_form', 'surveys_form', 'methodology_form', 'grant_proposal_form', 'ext_circumstances_form',
+                  'principal_investigator_signature', 'faculty_supervisor_signature', 'funding', 'start_date', 'end_date', 'purpose', 'methodology', 'benefits',
+                  'risk', 'recruited', 'why_identify', 'how_data_store', 'consent_process', 'review_notes')
+
+        widgets = { 'review_notes' : forms.Textarea(attrs={'placeholder' : 'Add your notes for this project here.'})}

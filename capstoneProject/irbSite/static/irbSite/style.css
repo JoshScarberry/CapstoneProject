@@ -116,7 +116,8 @@ h5 {width:100%; border:none; background:#633394; color:#FFF; text-align:center; 
 #contact input[type="tel"],
 #contact input[type="url"],
 #contact input[type="password"],
-#contact textarea {width:100%; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#contact textarea {width:100%; max-width:300px border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#user textarea {width:100%; max-width:300px border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
 #contact input[type="checkbox"]{font-size:15px;}
 
 
