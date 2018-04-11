@@ -85,12 +85,12 @@ h5 {width:100%; border:none; background:#633394; color:#FFF; text-align:center; 
 .login_container {width:400px; max-height:100%; margin: 10px auto; width: auto\9; /* ie8 */ background-color: #ffffff;}
 .form_container {width:450px; max-height:100%; margin: 10px auto; width: auto\9; /* ie8 */ background-color: #ffffff;}
 .small_container {width:650px; max-height:100%; margin: 10px auto 100px auto; width: auto\9; /* ie8 */ background-color: #ffffff; border: 1px solid black; border-radius: 10px; padding: 30px; box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.6), 0 2px 2px 0 rgba(0, 0, 0, 0.24);}
-.big_container {width:650px; max-height:100%; margin: 10px auto; width: auto\9; /* ie8 */ background-color: #ffffff; border: 1px solid black; border-radius: 10px; padding: 30px; box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.6), 0 2px 2px 0 rgba(0, 0, 0, 0.24);}
+.big_container {width:1000px; max-height:100%; margin: 10px auto; width: auto\9; /* ie8 */ background-color: #ffffff; border: 1px solid black; border-radius: 10px; padding: 30px; box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.6), 0 2px 2px 0 rgba(0, 0, 0, 0.24);}
 .user_container {width:900px; max-height:100%; margin: 10px auto; width: auto\9; /* ie8 */ background-color: #ffffff; border: 1px solid black; border-radius: 10px; padding: 30px; box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.6), 0 2px 2px 0 rgba(0, 0, 0, 0.24);}
 .menu_container {width: 250px; max-height:100%; border-radius:10px; margin: 10px 0 0 30px; float:left; background-color: #ffffff; box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.6), 0 2px 2px 0 rgba(0, 0, 0, 0.24);}}
 .progressbar_container {max-width:50%; max-height:100%; margin:0 auto; position:relative; width: auto\9; /* ie8 */}
 .wrapper {width:30%; font-size: 14px; text-align: center; margin:0; margin-top: 20px; margin-left:auto; margin-right:auto; overflow:hidden;}
-.big_content{width: 650px; max-width:100%; max-height:100%; margin: 0 auto 50px auto; width: auto\9; /* ie8 */}
+.big_content{width:950px; max-width:100%; max-height:100%; margin: 0 auto 50px auto; width: auto\9; /* ie8 */}
 .form_content{width: 400px; min-width:100%; max-height:100%; margin: 10px auto; width: auto\9; /* ie8 */}
 .login_content{width: 450px; min-width:100%; max-height:100%; margin: 90px auto; width: auto\9; /* ie8 */}
 .user_content{width: 700px; max-width:100%; max-height:100%; margin: 0 auto 50px auto; width: auto\9; /* ie8 */}
@@ -116,9 +116,10 @@ h5 {width:100%; border:none; background:#633394; color:#FFF; text-align:center; 
 #contact input[type="tel"],
 #contact input[type="url"],
 #contact input[type="password"],
-#contact textarea {width:100%; max-width: 300px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#contact textarea {width:100%; max-width:300px border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#user textarea {width:100%; max-width:300px border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
 #contact input[type="checkbox"]{font-size:15px;}
-#user textarea {width:100%; max-width: 300px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+
 
 /********* FORM HOVER *********/
 #contact input[type="text"]:hover,
@@ -237,21 +238,11 @@ button:hover {background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-rin
 #small_table .td_checkbox {text-align: center; vertical-align: middle; }
 #small_table .small_icons {width: 40px; height: 40px; text-align: center;}
 
-
+#forms {text-align: center;}
 #forms a {color: #000000; font-size: 14px; text-decoration: none; cursor:pointer;}
 #forms a:hover {color: #633394; font-weight: bold; outline:-webkit-focus-ring-color auto 5px; transition: font-weight 0.4s ease-in-out;}
 #forms p {font-size: 20px;}
 #forms td{background-color: #ffffff;}
-
-#funky_table{border-collapse: collapse; width: 600px; background-color: #ffffff; border-radius: 5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
-#funky_table td, #small_table th {border: 1px solid #ddd; padding: 15px; text-align: center;}
-#funky_table td {font-size: 14px;}
-#funky_table tr:nth-child(even){background-color: #f2f2f2;}
-#funky_table th {padding-top: 20px; padding-bottom: 12px; background-color: #ffffff; font-size: 14px; color: #633394;}
-#funky_table .td_checkbox {text-align: center; vertical-align: middle; }
-#funky_table .small_icons {width: 40px; height: 40px; text-align: center;}
-
-
 
 
 
