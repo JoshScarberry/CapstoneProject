@@ -9,49 +9,7 @@
 	{% block body %}
 	{% load static %}
 
-	<!-- HEADER -->
-	<div id="header" class="sticky">
-		<div>
-			<a href="https://www.mga.edu/"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %}/></a>
-		</div>
-		<div class="aligncenter">
-			<h1 class="title">Institutional Review Board</h1>
-		</div>
-	</div>
 
-	<br>
-	<br>
-
-<!-- Side Navigation Menu -->
-	<div class="menu_container">
-		<div id="menu">
-			<ul>
-				<!-- Links to the Home page, submit new project page, Forms page and the the Principal Investigator’s Handbook. -->
-				<li class="title">Menu</li>
-				<li><a href="{% url 'irbSite:index' %}"><img class="icons" src={% static 'irbSite/images/home.png' %}/>Home</a></li>
-				<li><a href="form.html"><img class="icons" src={% static 'irbSite/images/projects.png' %}/>Submit New Project</a></li>
-				<hr>
-				<li><a href="project_forms.html"><img class="icons" src={% static 'irbSite/images/IRB-PDF-icon.png' %}/>Forms</a></li>
-				<li><a href="https://www.mga.edu/faculty-staff/governance/2016-2017/docs/standing-committees-boards/boards/institutional-review/documents/IRB%20Principal%20Investigator%20Handbook.pdf" target="_blank"><img class="icons" src={% static 'irbSite/images/handbook.png' %} alt=""/>Handbook</a></li>
-				<hr>
-				<br>
-
-				<!--Logout Button-->
-				<li><a id="mylink" href="{% url 'irbSite:logout' %}"><img class="icons" src={% static 'irbSite/images/logout.png' %}/>Logout</a></li>
-
-				<hr>
-				<br>
-
-				{% if user.is_staff == True %}
-				<!--Section that will only be displayed if user is an Admin-->
-				<p>Click here to access Admin View</p>
-				<li class="title"><a href="{% url 'irbSite:irbadmin' %}"></a>Admin View</li>
-				{% endif %}
-
-
-			</ul>
-		</div>
-	</div>
 
 <!-- CONTENT-->
 	<div class="small_container">
@@ -210,6 +168,6 @@
 </div>
 <script src={% static 'irbSite/js/multi_form.js'%}></script><!--Java script for the multi step form-->
 
-<!-- FOOTER -->
+
 
 	{% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 
 	{% block head %}
 	<title>Middle Georgia State University | IRB FORM Login</title>
@@ -8,17 +8,7 @@
 	{% block body%}
 	{% load static %}
 
-	<!-- HEADER -->
-			<div id="header" class="sticky">
-				<div>
-					<a href="login.html"><img class="logo" src="{% static 'irbSite/images/mga-header-logo.png' %}"/></a>
-				</div>
 
-				<div>
-					<h1 class="title">Institutional Review Board</h1>
-
-				</div>
-			</div>
 
 		<!-- CONTENT-->
 
@@ -37,17 +27,17 @@
 
 
 					<!-- Display password CheckBox-->
-					<fieldset>
+					<!--<fieldset>
 						<input type="checkbox" onclick="showFunction()" value="ShowMe" id=""> Show Password
-					</fieldset>
+					</fieldset>-->
 					<br>
 
 					<!-- Remember Login CheckBox -->
 					<fieldset>
-						<input type="checkbox" name="checkbox" id="remember_Me" value="Remember"><label for="irb_form"> Remember Me</label>
+						<!--<input type="checkbox" name="checkbox" id="remember_Me" value="Remember"><label for="irb_form"> Remember Me</label>-->
 
 						<!-- Forgot Password page -->
-						<a class="fright" href={% url 'password_reset' %}>Forgot Password</a>
+						<a class="fleft" href={% url 'password_reset' %}>Forgot Password</a>
 					</fieldset>
 
 					<!-- Submit Data Button-->

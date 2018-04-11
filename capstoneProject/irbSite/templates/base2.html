@@ -20,6 +20,8 @@
   <body>
 
     <!-- Sticky header for mobile device -->
+
+
     <div id="header" class="sticky">
       <div>
         <a href="https://www.mga.edu/"><img class="logo" src={% static 'irbSite/images/mga-header-logo.png' %} alt=""/></a>
@@ -32,39 +34,7 @@
     <br>
     <br>
 
-  <!-- Side Navigation Menu -->
-    <div class="menu_container">
-      <div id="menu">
-        <ul>
-          <!-- Links to the Home page, submit new project page, Forms page and the the Principal Investigator’s Handbook. -->
-          <li class="title">Menu</li>
-          <li><a href="{% url 'irbSite:index' %}"><img class="icons" src={% static 'irbSite/images/home.png' %} alt=""/>Home</a></li>
-          <li><a href="{% url 'irbSite:form' %}"><img class="icons" src={% static 'irbSite/images/projects.png' %} alt=""/>Submit New Project</a></li>
-          <hr>
-          <li><a href="{% url 'irbSite:project_forms' %}"><img class="icons" src={% static 'irbSite/images/pdf.png' %} alt=""/>Forms</a></li>
-          <li><a href="https://www.mga.edu/faculty-staff/governance/2016-2017/docs/standing-committees-boards/boards/institutional-review/documents/IRB%20Principal%20Investigator%20Handbook.pdf" target="_blank"><img class="icons" src={% static 'irbSite/images/handbook.png' %} alt=""/>Handbook</a></li>
-          <hr>
-          <br>
-
-          <!--Logout Button-->
-          <li><a id="mylink" href="{% url 'irbSite:logout' %}"><img class="icons" src={% static 'irbSite/images/logout.png' %} alt=""/>Logout</a></li>
-
-          <hr>
-          <br>
-
-          <!--Section that will only be displayed if user is an Admin-->
-          {% if user.is_staff %}
-            <li class="title">Admin</li>
-
-    				<!--Links to the Admin Projects page and User page-->
-						<li><a href="{% url 'irbSite:irbadmin' %}"><img class="icons" src={% static 'irbSite/images/view_projects.png' %} alt=""/>View Projects</a></li>
-    						{% else %}
-                {% endif %}
-        </ul>
-      </div>
-    </div>
-
-
+    <!-- CONTENT-->
 
 
     {% block body %}

@@ -6,6 +6,7 @@ from django.views.generic import CreateView, TemplateView, ListView, DetailView,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from irbSite.forms import IndexForm, UserRegisterForm, ProjectForm, AdminForm, ProjectReviewForm
 from irbSite.models import Project, User
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -86,3 +87,7 @@ class IrbAdmin(LoginRequiredMixin, ListView):
 
 class TestPage(LoginRequiredMixin,TemplateView):
     template_name = 'irbSite/test.html'
+
+@login_required(login_url="/accounts/login/")
+def project_forms(request):
+    return render(request, 'irbSite/project_forms.html')

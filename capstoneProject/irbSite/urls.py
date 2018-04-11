@@ -25,6 +25,8 @@ urlpatterns = [
 
     url(r'^review/(?P<pk>\d+)/', views.ReviewProject.as_view(), name = 'reviewProject'),
 
+    url(r'^project_forms/', views.project_forms,name='project_forms'),
+
     url(r'^test/', views.TestPage.as_view(),name='test'),
 
 ]
