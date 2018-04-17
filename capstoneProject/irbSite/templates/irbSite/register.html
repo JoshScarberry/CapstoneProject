@@ -1,0 +1,50 @@
+{% extends 'base2.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Form Register</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Register account page." />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+  
+
+		<!-- CONTENT-->
+
+			<div class="login_content">
+
+				<section class="login_container">
+
+					<form id="contact" method="post">
+
+					<h3>Register</h3><br>
+
+						{% csrf_token %}
+						{{ form.as_p }}
+
+						<fieldset>
+							<input type="submit" class'bnt btn-primary' value="Sign Up">
+						</fieldset>
+
+						<fieldset>
+							<p class="fleft">Already a member?</p>
+							<a class="linkspace" href="{% url 'irbSite:login' %}">Sign In</a>
+						</fieldset>
+
+					</form>
+
+				</section>
+				<!--<section class="container">
+					<div id="message">
+					  <h3>Password must contain the following:</h3>
+					  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+					  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+					  <p id="number" class="invalid">A <b>number</b></p>
+					  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+					  <p id="match" class="invalid">Passwords <b> match</b></p>
+					</div>
+				</section>-->
+
+			</div>
+
+	{% endblock %}

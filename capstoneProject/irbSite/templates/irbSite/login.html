@@ -1,0 +1,61 @@
+{% extends 'base2.html' %}
+
+	{% block head %}
+	<title>Middle Georgia State University | IRB FORM Login</title>
+	<meta name="Institutional Review Board (IRB)" content="This is the IRB Login page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+
+
+		<!-- CONTENT-->
+
+		{% block nav %}
+		{% endblock %}
+
+		<!-- Beginning of login form -->
+		<div class="login_content" id="item1">
+			<section class="login_container">
+
+				<form id="contact" method="post">
+
+					<h3>Login</h3><br>
+					{% csrf_token %}
+					{{ form.as_p }}
+
+
+					<!-- Display password CheckBox-->
+					<!--<fieldset>
+						<input type="checkbox" onclick="showFunction()" value="ShowMe" id=""> Show Password
+					</fieldset>-->
+					<br>
+
+					<!-- Remember Login CheckBox -->
+					<fieldset>
+						<!--<input type="checkbox" name="checkbox" id="remember_Me" value="Remember"><label for="irb_form"> Remember Me</label>-->
+
+						<!-- Forgot Password page -->
+						<a class="fleft" href={% url 'password_reset' %}>Forgot Password</a>
+					</fieldset>
+
+					<!-- Submit Data Button-->
+					<fieldset>
+
+						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Sign In</button>
+
+					</fieldset>
+
+					<!-- Register Account Page -->
+					<fieldset>
+						<p class="fleft">Do you have an account?</p>
+						<!--<a class="linkspace" href="register.html">Sign Up</a>-->
+						<a class="linkspace" href="{% url 'irbSite:register' %}">Sign Up</a>
+					</fieldset>
+				</form>
+
+			</section>
+		</div>
+		<!-- End of login form -->
+	{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Projects Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Projects page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+  <!-- HEADER -->
+
+
+
+	<!-- CONTENT-->
+
+		<div class="small_container">
+			<section class="small_content">
+
+				<form id="forms" action="confirmation.html" method="post">
+					<h1 class="fright">Welcome: {{user.username}}</h1>
+					<h5>Project Forms</h5>
+					<br>
+
+					<p>You can print the below forms that are required for IRB review.</p>
+					<p>Please review the Principal Investigator’s Handbook for more details about the requirements
+						before submitting the IRB forms.
+					</p>
+
+					<br>
+
+					<table id="small_table"><!--Beginning of Table-->
+						<tr>
+							<td><a href={% static 'irbSite/project_forms/Assent Form.docx' %} target="_blank">Assent Form</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href={% static 'irbSite/project_forms/IRB_Consent.pdf' %} target="_blank">Consent Form</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href={% static 'irbSite/project_forms/Extenuating Circumstances.docx' %} target="_blank">Extenuating circumstances</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href={% static 'irbSite/project_forms/Faculty_Signature.pdf' %} target="_blank">Faculty Supervisor Signature</a></td><!--Hyperlink to a blank form to use a guide-->
+						</tr>
+						<tr>
+							<td><a href={% static 'irbSite/project_forms/Grant Proposal.docx' %} target="_blank">Grant Proposal</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href={% static 'irbSite/project_forms/Methodology.docx' %} target="_blank">Methodology</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href={% static 'irbSite/project_forms/Survey.docx' %} target="_blank">Surveys</a></td><!--Hyperlink to a blank form to use a guide-->
+							<td><a href={% static 'irbSite/project_forms/Principal Investigator.pdf' %} target="_blank">Principal Investigator Signature</a></td><!--Hyperlink to a blank form to use a guide-->
+						<tr>
+					</table><!--End of Table-->
+				</form>
+			</section>
+
+		</div>
+		<br><!--Adds space between form and footer section-->
+		<br>
+		<br>
+
+
+
+	{% endblock %}

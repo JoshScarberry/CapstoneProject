@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Project Forms Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Project Form page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+
+
+		<!-- CONTENT-->
+
+
+		<div class="big_container">
+			<section class="big_content">
+				<h1 class="fright">Welcome: {{user.username}}</h1>
+				<h5>Forms - Admin Review</h5><br>
+
+				<form id="forms" method="get"><!--The action is the form-handler server page with a script for processing input data.-->
+				{% csrf_token %}
+
+					<h3>Forms submitted for this project</h3>
+
+					<table id="funky_table"><!--Beginning of Table-->
+
+						<tr>
+							<th>Consent Form</th><!--Header Column-->
+							<th>Assent Form</th><!--Header Column-->
+							<th>Survey Form</th><!--Header Column-->
+							<th>Methodology</th><!--Header Column-->
+							<th>Grant Proposal</th><!--Header Column-->
+							<th>Extenuating Circumstances</th><!--Header Column-->
+							<th>Principal Investigator Signature</th><!--Header Column-->
+							<th>Faculty Signature</th><!--Header Column-->
+						</tr>
+						<tr>
+							<td><a href="{{project.consent_form}}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></a></td>
+							<td><a href="{{project.assent_form}}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></a></td>
+							<td><a href="{{project.surveys_form}}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></a></td>
+							<td><a href="{{project.methodology_form}}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></a></td>
+							<td><a href="{{project.grant_proposal_form}}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></a></td>
+							<td><a href="{{project.ext_circumstances_form}}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></a></td>
+							<td><a href="{{project.principal_investigator_signature}}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></a></td>
+							<td><a href="{{project.faculty_supervisor_signature}}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></a></td>
+						</tr>
+
+					</table>
+					<br><br>
+					<h3>Submitted data for this project</h3>
+					<table id="small_table">
+						<tr>
+							<th>Project Title</th><!--Header Column-->
+							<td>{{ project.project_name }}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>Funding</th><!--Header Column-->
+							<td>{{project.funding}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>Project Dates</th><!--Header Column-->
+							<td>Start:   {{project.start_date}}<br><br>End:   {{project.end_date}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>Scientific Purpose</th><!--Header Column-->
+							<td>{{project.purpose}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>Methodology</th><!--Header Column-->
+							<td>{{project.methodology}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>Potential Benifits</th><!--Header Column-->
+							<td>{{project.benefits}}</td><!--Table Data that will be displayed by queries from the database-->
+
+						</tr>
+						<tr>
+							<th>Antidipated Risk</th><!--Header Column-->
+							<td>{{project.risk}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>How Participants Will be Recruited</th><!--Header Column-->
+							<td>{{project.recruited}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>Why Identify Participants </th><!--Header Column-->
+							<td>{{project.why_identify}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>How Will Data be Stored</th><!--Header Column-->
+							<td>{{project.how_data_store}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+						<tr>
+							<th>Consent Process</th><!--Header Column-->
+							<td>{{project.consent_process}}</td><!--Table Data that will be displayed by queries from the database-->
+						</tr>
+					</table><!--End of Table-->
+				</form>
+				<br><br>
+
+				<form id="user" method="post">
+
+						<tr>
+							<th>You can enter notes about this IRB Project here.</th><!--Header Column--><br>
+							<td>{{project.review_notes}}</td><!--Text area for comments by Admin-->
+						</tr>
+
+					<div  id="user_content" class="fright">
+						{{project.is_complete}}<br>
+						{{project.is_approved}}<br><br><br>
+						<!--A button to update the database with the new information that was submitted-->
+						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+					</div>
+					<br>
+					<br>
+				</form>
+			</section>
+
+		</div>
+		<br><!--Add space between for and footer-->
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+	{% endblock %}

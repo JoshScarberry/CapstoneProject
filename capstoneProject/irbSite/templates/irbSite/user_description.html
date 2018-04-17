@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Description Form Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB description page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+  <!-- HEADER -->
+
+
+	<!-- CONTENT-->
+
+		<!--Container for the User Description page-->
+		<div class="big_container">
+			<section class="big_content">
+
+				<form id="user" action="user_description.html" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
+
+						<!--Header for the Page-->
+						<h5>Project Description</h5>
+						<br>
+
+					<!--Beginning of Table-->
+					<table id="small_table">
+						<tr>
+							<th>Project Title:</th><!--Table Headers-->
+							<td>Solar Power</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea placeholder="Project Title:" type="text" name="TITLE_PROJ_NAME" oninput="this.className = ''"tabindex="1" ></textarea></td><!--Field to edit the project title-->
+						</tr>
+						<tr>
+							<th>Funding</th><!--Table Headers-->
+							<td>Middle Georgia State</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea placeholder="Source of Funding (if any):" name="FUNDING" oninput="this.className = ''" type="text" tabindex="2" ></textarea></td><!--Field to edit current information-->
+						</tr>
+						<tr>
+							<th>Dates</th><!--Table Headers-->
+							<td>Start Date: 01/08/2018<br><!--Table Data that will be displayed by queries from the database-->
+							End Date: 05/25/2018</td><!--Table Data that will be displayed by queries from the database-->
+							<td><label>Start Date: </label>&nbsp; <input placeholder="Start Date" type="date" name="START_DATE" oninput="this.className = ''" tabindex="3" ><br><!--Field to edit current information-->
+							<label>End Date:  </label>&nbsp;&nbsp;&nbsp;&nbsp;<input placeholder="End Date" type="date" name="END_DATE" oninput="this.className = ''" tabindex="4" ><!--Field to edit current information-->
+							</td>
+						</tr>
+						<tr>
+							<th>Scientific Purpose</th><!--Table Headers-->
+							<td>Convert MGA to solar power</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea placeholder="Describe the Scientific Purpose of the Investigation...." name="PURPOSE" oninput="this.className = ''" tabindex="5" ></textarea></td><!--Field to edit current information-->
+						</tr>
+							<th>Methodology</th><!--Table Headers-->
+							<td>The test subjects will go thru...</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea name="METHOD" oninput="this.className = ''" placeholder="Describe the research methodology in non-technical language (the IRB needs to know what will be done with or to all research participants)...." tabindex="6" ></textarea></td><!--Field to edit current information-->
+						</tr>
+						<tr>
+							<th>Potential Benefits</th><!--Table Headers-->
+							<td>Save on power</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea name="BENEFITS" oninput="this.className = ''" placeholder="What are the potential benefits of this research (either directly to the participants, or to the body of knowledge being researched)" tabindex="7" ></textarea></td><!--Field to edit current information-->
+						</tr>
+						<tr>
+							<th>Anticipated Risks</th><!--Table Headers-->
+							<td>Minor Risk</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea name="RISK" oninput="this.className = ''" placeholder="What are the anticipated risks (risks include, physical, psychological, or economic harm; be certain to describe the steps taken to protect participants from these risks)" tabindex="8" ></textarea></td><!--Field to edit current information-->
+						</tr>
+						<tr>
+							<th>Participants will be recruited?</th><!--Table Headers-->
+							<td>9 participants will help with this project</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea name="PARTICIPANTS" oninput="this.className = ''" placeholder="Describe how participants will be recruited (must include total number and age of all participants to be recruited and any compensation participants will be provided)" tabindex="9" ></textarea></td><!--Field to edit current information-->
+						</tr>
+						<tr>
+							<th>Why the identity of the participants?</th><!--Table Headers-->
+							<td>For security reason and in case we need to conatact them</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea name="REASON_WHY" oninput="this.className = ''" placeholder="Describe why it is necessary that the Primary Investigator(s) and/or Supervisor know the identity of the participants (not  for Exempt Reviews)" tabindex="10" ></textarea></td><!--Field to edit current information-->
+						</tr>
+						<tr>
+							<th>How data stored/destroyed?</th><!--Table Headers-->
+							<td>Files save on the server.</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea name="HOW_DATA" oninput="this.className = ''" placeholder="Describe how data collected for this project will be securely stored and how and when it will be destroyed" tabindex="11" ></textarea></td><!--Field to edit current information-->
+						</tr>
+						<tr>
+							<th>Consent process</th><!--Table Headers-->
+							<td>Participants will sign waivers</td><!--Table Data that will be displayed by queries from the database-->
+							<td><textarea name="CONSENT" oninput="this.className = ''" placeholder="Describe the informed consent process" tabindex="12" ></textarea></td><!--Field to edit current information-->
+						</tr>
+					</table><!--End of the table-->
+					<br>
+
+					<!--Link to the description section of the project-->
+					<div class="fleft">
+						<a href="user_forms.html">Forms</a>
+					</div>
+
+					<!--A button to update the database with the new information that was submitted-->
+					<div  id="user_content" class="fright">
+						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Update</button>
+					</div>
+					<br>
+					<br>
+				</form>
+			</section>
+
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+	{% endblock %}

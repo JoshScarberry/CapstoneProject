@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB User Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB User page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+
+		<!-- CONTENT-->
+
+			<!--Container for the User page-->
+			<div class="small_container">
+				<section class="small_content">
+
+					<form id="user" method="post">
+					{% csrf_token %}
+						<!--Header for the Page-->
+						<h1 class="fright">Welcome: {{user.username}}</h1>
+						<h5>Your Projects</h5>
+							<br>
+								<p>Below is a list of projects you have submitted.</p>
+								<p>You can check the status and edit incomplete projects.</p>
+									<br>
+								<p>Completed submission are locked for review.</p>
+								<p>If you would like to edit them again, contact the IRB board.</p>
+							<br>
+
+						<!--Beginning of Table-->
+						<table id="small_table">
+
+						{% if user.is_authenticated %}
+
+							{% if project_list %}
+								<tr>
+									<th>Project Name</th>
+									<th>Is Complete</th>
+									<th>Is Approved</th>
+									<th>Review</th>
+								</tr>
+								{% for project in project_list  %}
+									{% if project.is_complete == False %}
+										<tr>
+											<td>{{project.project_name}}</td>
+											<td>{{project.is_complete}}</td>
+											<td>{{project.is_approved}}</td>
+											<td><a href="{% url 'irbSite:editProject' pk=project.project_id %}">Review</a></td>
+										</tr>
+										{% else %}
+										<tr>
+											<td>{{project.project_name}}</td>
+											<td>{{project.is_complete}}</td>
+											<td>{{project.is_approved}}</td>
+										</tr>
+									{% endif %}
+								{% endfor %}
+								</tr>
+							{% else %}
+								<br>
+								<hr>
+								<p>You do not have any current IRB forms. Please select "Submit New Project" on the left to start one.<p>
+							{% endif %}
+
+						{% else %}
+							<p>You are not logged in</p>
+
+						{% endif %}
+
+						</table>
+					</form>
+				</section>
+			</div>
+			<br>
+
+
+	{% endblock %}
