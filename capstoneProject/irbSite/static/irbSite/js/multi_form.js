@@ -32,7 +32,7 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
-    document.getElementById("user").submit();
+    document.getElementById("forms").submit();
     return false;
   }
   // Otherwise, display the correct tab:
@@ -64,7 +64,7 @@ function validateForm() {
 }
 
 
-  
+
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";

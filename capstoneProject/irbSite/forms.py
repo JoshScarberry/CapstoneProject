@@ -46,15 +46,6 @@ class ProjectForm(ModelForm):
                     'consent_process' : forms.Textarea(attrs={'placeholder' : 'Describe the informed consent process'}),
                     'review_notes' : forms.Textarea(attrs={'placeholder' : 'Add your notes for this submission here'})}
 
-# Clone of ProjectForm + review_notes
-#class ProjectReviewForm(ModelForm):
-#    class Meta():
-#        model = Project
-#        fields = ('project_name', 'review_type', 'consent_form', 'assent_form', 'surveys_form', 'methodology_form', 'grant_proposal_form', 'ext_circumstances_form',
-#                  'principal_investigator_signature', 'faculty_supervisor_signature', 'funding', 'start_date', 'end_date', 'purpose', 'methodology', 'benefits',
-#                  'risk', 'recruited', 'why_identify', 'how_data_store', 'consent_process', 'review_notes', 'is_complete', 'is_approved')
-#
-#        widgets = { 'review_notes' : forms.Textarea(attrs={'placeholder' : 'Add your notes for this project here.'})}
 
 class ProjectReviewForm(ModelForm):
     class Meta():

@@ -31,4 +31,6 @@ urlpatterns = [
 
     url(r'^test/', views.TestPage.as_view(),name='test'),
 
+    url(r'^confirmation/', views.ConfirmationView.as_view(),name = 'confirmation'),
+
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
