@@ -51,13 +51,17 @@ class EditProject(LoginRequiredMixin, UpdateView):
         #pass
 
 #///////////////////////////////////////////////////// View for admin reviewing complete projects page//////////////////////////////////////////////////
-class ReviewProject(LoginRequiredMixin, DetailView):
+class ReviewProject(LoginRequiredMixin, UpdateView):
     template_name = 'irbSite/admin_forms.html'
     form_class = ProjectReviewForm
     success_url = reverse_lazy('irbSite:irbadmin')
 
-
     queryset = Project.objects.all()
+
+    #def form_valid(self, form):
+    #    form.instance.user = self.request.user
+    #    return super(Form, self).form_valid(form)
+
     #def edit_object(queryset, pk):
         #editPK = get_object_or_404(Project, id=pk)
         #project_list = Project.objects.filter(project_id=editPK)
@@ -72,22 +76,27 @@ class ReviewProject(LoginRequiredMixin, DetailView):
 class IrbAdmin(LoginRequiredMixin, ListView):
     template_name = 'irbSite/admin_index.html'
     #form_class = AdminForm
-    model = Project
+    #model = Project
     #model = User
 
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['project_list'] = Project.objects.filter(is_complete=True)
-        context['user_list'] = User.objects.all()
-        print(context)
-        return context
+    queryset=Project.objects.filter(is_complete=True)
 
 
+    #def get_context_data(self, **kwargs):
+    #    context = super().get_context_data(**kwargs)
+    #    context['project_list'] = Project.objects.filter(is_complete=True)
+    #    context['user_list'] = User.objects.all()
+    #    return context
 
+#/////////////////////////////////////////////////////// View for downloading document templates ////////////////////////////////////////////////////////
+class ProjectFormsView(LoginRequiredMixin, ListView):
+    template_name = 'irbSite/project_forms.html'
+    form_class = ProjectReviewForm
+    success_url = reverse_lazy('irbSite:irbadmin')
+
+    queryset = Project.objects.all()
+
+
+#//////////////////////////////////////////////////// View for testing ////////////////////////////////////////////////////////////////////////////////////
 class TestPage(LoginRequiredMixin,TemplateView):
     template_name = 'irbSite/test.html'
-
-@login_required(login_url="/accounts/login/")
-def project_forms(request):
-    return render(request, 'irbSite/project_forms.html')
