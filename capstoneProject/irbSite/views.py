@@ -31,7 +31,7 @@ class Registration(CreateView):
 class Form(LoginRequiredMixin,CreateView):
     template_name = 'irbSite/form.html'
     form_class = ProjectForm
-    success_url = reverse_lazy('irbSite:index')
+    success_url = reverse_lazy('irbSite:confirmation')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -58,19 +58,6 @@ class ReviewProject(LoginRequiredMixin, UpdateView):
 
     queryset = Project.objects.all()
 
-    #def form_valid(self, form):
-    #    form.instance.user = self.request.user
-    #    return super(Form, self).form_valid(form)
-
-    #def edit_object(queryset, pk):
-        #editPK = get_object_or_404(Project, id=pk)
-        #project_list = Project.objects.filter(project_id=editPK)
-        #print(project_list)
-        #pass
-
-    #return render(request, 'irbSite/admin_forms.html' ,{
-    #    'answers' : answers,
-    #})
 
 #/////////////////////////////////////////////////////// View for admin viewing completed projects page////////////////////////////////////////////
 class IrbAdmin(LoginRequiredMixin, ListView):
@@ -82,12 +69,6 @@ class IrbAdmin(LoginRequiredMixin, ListView):
     queryset=Project.objects.filter(is_complete=True)
 
 
-    #def get_context_data(self, **kwargs):
-    #    context = super().get_context_data(**kwargs)
-    #    context['project_list'] = Project.objects.filter(is_complete=True)
-    #    context['user_list'] = User.objects.all()
-    #    return context
-
 #/////////////////////////////////////////////////////// View for downloading document templates ////////////////////////////////////////////////////////
 class ProjectFormsView(LoginRequiredMixin, ListView):
     template_name = 'irbSite/project_forms.html'
@@ -95,6 +76,10 @@ class ProjectFormsView(LoginRequiredMixin, ListView):
     success_url = reverse_lazy('irbSite:irbadmin')
 
     queryset = Project.objects.all()
+
+#//////////////////////////////////////////////////// Succelfull submit page /////////////////////////////////////////////////////////////////////////////
+class ConfirmationView(LoginRequiredMixin, TemplateView):
+    template_name = 'irbSite/confirmation.html'
 
 
 #//////////////////////////////////////////////////// View for testing ////////////////////////////////////////////////////////////////////////////////////

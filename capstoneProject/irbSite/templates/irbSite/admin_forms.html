@@ -142,12 +142,11 @@
 
 					<div  id="user_content" class="">
 						<br>
-						<p>If you would like to mark this submission as incomplete for the submitter to edit again, leave this unchecked. Otherwise mark it complete.<p>
-						<input type="checkbox" name="is_complete" id="id_is_complete">
-						<label class="vCheckboxLabel" for="id_is_complete">Complete</label><br><br>
-						<p>If you want to approve this project, check this box.<p>
-						<input type="checkbox" name="is_approved" id="id_is_approved">
-						<label class="vCheckboxLabel" for="id_is_approved">Approved</label><br><br>
+						<p>If you would like this submission to become editable again, select "No". <p>
+						<p>Complete submission:<p>
+						<p>{{form.is_complete}}<p><br>
+						<p>If you want to approve this project, select "Approved".<p>
+						<p>{{form.is_approved}}<p><br>
 						<p>Approval Date<p>
 						<p>{{ form.date_approved}}<p><br>
 

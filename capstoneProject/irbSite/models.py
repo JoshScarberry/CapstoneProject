@@ -19,7 +19,7 @@ class User(auth.models.User, auth.models.PermissionsMixin):
 
 class Project(models.Model):
     project_id = models.AutoField(primary_key=True)
-    project_name = models.CharField(max_length = 20, unique = True)
+    project_name = models.CharField(max_length = 20)
     last_modified = models.DateField(auto_now=True, blank = True)
 
     # project qualified for
@@ -27,33 +27,43 @@ class Project(models.Model):
         ('exempt review' , 'Exempt Review'),
         ('expedited review', 'Expedited Review'),
         ('full irb review', 'Full IRB Review'),)
-    review_type = models.CharField(max_length = 20, choices = REVIEW_TYPE, blank = True)
+    review_type = models.CharField(max_length = 20, choices = REVIEW_TYPE)
 
-    # https://docs.djangoproject.com/en/2.0/topics/http/file-uploads/
-    consent_form = models.FileField(blank = True)
-    assent_form = models.FileField(blank = True)
-    surveys_form = models.FileField(blank = True)
-    methodology_form = models.FileField(blank = True)
-    grant_proposal_form = models.FileField(blank = True)
-    ext_circumstances_form = models.FileField(blank = True)
-    principal_investigator_signature = models.FileField(blank = True)
-    faculty_supervisor_signature = models.FileField(blank = True)
-    funding = models.CharField(max_length = 500, blank = True)
-    start_date = models.DateField(blank = True, null = True)
-    end_date = models.DateField(blank = True, null = True)
-    purpose = models.CharField(max_length = 500, blank = True )
-    methodology = models.CharField(max_length = 500, blank = True )
-    benefits = models.CharField(max_length = 500, blank = True )
+    consent_form = models.FileField(blank = True, null = True)
+    assent_form = models.FileField(blank = True, null = True)
+    surveys_form = models.FileField(blank = True, null = True)
+    methodology_form = models.FileField(blank = True, null = True)
+    grant_proposal_form = models.FileField(blank = True, null = True)
+    ext_circumstances_form = models.FileField(blank = True, null = True)
+    principal_investigator_signature = models.FileField(blank = True, null = True)
+    faculty_supervisor_signature = models.FileField(blank = True, null = True)
+    funding = models.CharField(max_length = 500)
+    start_date = models.DateField(blank = True)
+    end_date = models.DateField(blank = True)
+    purpose = models.CharField(max_length = 500)
+    methodology = models.CharField(max_length = 500)
+    benefits = models.CharField(max_length = 500)
     risk = models.CharField(max_length = 500, blank = True )
-    recruited = models.CharField(max_length = 500, blank = True )
-    why_identify = models.CharField(max_length = 500, blank = True )
-    how_data_store = models.CharField(max_length = 500, blank = True )
-    consent_process = models.CharField(max_length = 500, blank = True )
-    review_notes = models.CharField(max_length = 500, blank = True)
-    date_approved = models.DateField(blank = True, null = True)
+    recruited = models.CharField(max_length = 500)
+    why_identify = models.CharField(max_length = 500)
+    how_data_store = models.CharField(max_length = 500)
+    consent_process = models.CharField(max_length = 500)
+    review_notes = models.CharField(max_length = 500, blank = True, null = True)
+    date_approved = models.DateField(null = True)
     date_submitted = models.DateField(auto_now_add = True)
-    is_complete = models.BooleanField(default = False,blank = True)
-    is_approved = models.BooleanField(default = False, blank = True)
+
+    COMPLETE_CHOICES = (
+        (True, 'Yes'),
+        (False, 'No, allow submitter to edit')
+    )
+    is_complete = models.BooleanField(default = True, choices = COMPLETE_CHOICES)
+
+    APPROVED_CHOICES = (
+        (False, 'Not Approved'),
+        (True, 'Approved')
+    )
+    is_approved = models.BooleanField(default = False, choices = APPROVED_CHOICES)
+
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
