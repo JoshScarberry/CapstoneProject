@@ -18,30 +18,66 @@
 				<h1>Welcome {{user.username}}</h1>
 				<h5>Forms - Admin Review</h5><br>
 
-				<form id="user" method="get"><!--The action is the form-handler server page with a script for processing input data.-->
+				<form id="" method="get">
 				{% csrf_token %}
 
 					<p>Forms submitted for this project</p>
 
-					<table id="funky_table"><!--Beginning of Table-->
+					<table id="funky_table">
 
 						<tr>
-							<th>Consent Form</th><!--Header Column-->
-							<th>Assent Form</th><!--Header Column-->
-							<th>Survey Form</th><!--Header Column-->
-							<th>Methodology</th><!--Header Column-->
-							<th>Grant Proposal</th><!--Header Column-->
-							<th>Extenuating Circumstances</th><!--Header Column-->
-							<th>Faculty Signature</th><!--Header Column-->
+							<th>Consent Form</th>
+							<th>Assent Form</th>
+							<th>Survey Form</th>
+							<th>Methodology</th>
+							<th>Grant Proposal</th>
+							<th>Extenuating Circumstances</th>
+							<th>Faculty Signature</th>
 						</tr>
 						<tr>
-							<th><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></th>
-							<th><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></th>
-							<th><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></th>
-							<th><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></th>
-							<th><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></th>
-							<th><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></th>
-							<th><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/></th>
+
+						{% if project.consent_form %}
+							<th><a href="{{ project.consent_form.url }}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
+						{% else %}
+							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
+						{% endif %}
+
+						{% if project.assent_form %}
+							<th><a href="{{ project.assent_form.url }}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
+						{% else %}
+							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
+						{% endif %}
+
+						{% if project.surveys_form %}
+							<th><a class="" id="" href="{{ project.surveys_form.url }}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
+						{% else %}
+							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
+						{% endif %}
+
+						{% if project.methodology_form %}
+							<th><a class="" id="" href="{{ project.methodology_form.url }}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
+						{% else %}
+							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
+						{% endif %}
+
+						{% if project.grant_proposal_form %}
+							<th><a class="" id="" href="{{ project.grant_proposal_form.url }}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
+						{% else %}
+							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
+						{% endif %}
+
+						{% if project.ext_circumstances_form %}
+							<th><a class="" id="" href="{{ project.ext_circumstances_form.url }}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
+						{% else %}
+							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
+						{% endif %}
+
+						{% if project.faculty_supervisor_signature %}
+							<th><a class="" id="" href="{{ project.faculty_supervisor_signature.url }}"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
+						{% else %}
+							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
+						{% endif %}
+
 						</tr>
 
 					</table>
@@ -49,66 +85,74 @@
 					<p>Submitted data for this project</p>
 					<table id="small_table">
 						<tr>
-							<th>Project Title</th><!--Header Column-->
-							<td><b>{{ project.project_name }}</b></td><!--Table Data that will be displayed by queries from the database-->
+							<th>Project Title</th>
+							<td><b>{{ project.project_name }}</b></td>
 						</tr>
 						<tr>
-							<th>Funding</th><!--Header Column-->
-							<td>{{project.funding}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>Funding</th>
+							<td>{{project.funding}}</td>
 						</tr>
 						<tr>
-							<th>Project Dates</th><!--Header Column-->
-							<td>Start:   {{project.start_date}}<br><br>End:   {{project.end_date}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>Project Dates</th>
+							<td>Start:   {{project.start_date}}<br><br>End:   {{project.end_date}}</td>
 						</tr>
 						<tr>
-							<th>Scientific Purpose</th><!--Header Column-->
-							<td>{{project.purpose}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>Scientific Purpose</th>
+							<td>{{project.purpose}}</td>
 						</tr>
 						<tr>
-							<th>Methodology</th><!--Header Column-->
-							<td>{{project.methodology}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>Methodology</th>
+							<td>{{project.methodology}}</td>
 						</tr>
 						<tr>
-							<th>Potential Benifits</th><!--Header Column-->
-							<td>{{project.benefits}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>Potential Benifits</th>
+							<td>{{project.benefits}}</td>
 
 						</tr>
 						<tr>
-							<th>Antidipated Risk</th><!--Header Column-->
-							<td>{{project.risk}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>Antidipated Risk</th>
+							<td>{{project.risk}}</td>
 						</tr>
 						<tr>
-							<th>How Participants Will be Recruited</th><!--Header Column-->
-							<td>{{project.recruited}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>How Participants Will be Recruited</th>
+							<td>{{project.recruited}}</td>
 						</tr>
 						<tr>
-							<th>Why Identify Participants </th><!--Header Column-->
-							<td>{{project.why_identify}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>Why Identify Participants </th>
+							<td>{{project.why_identify}}</td>
 						</tr>
 						<tr>
-							<th>How Will Data be Stored</th><!--Header Column-->
-							<td>{{project.how_data_store}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>How Will Data be Stored</th>
+							<td>{{project.how_data_store}}</td>
 						</tr>
 						<tr>
-							<th>Consent Process</th><!--Header Column-->
-							<td>{{project.consent_process}}</td><!--Table Data that will be displayed by queries from the database-->
+							<th>Consent Process</th>
+							<td>{{project.consent_process}}</td>
 						</tr>
-					</table><!--End of Table-->
+					</table>
 				</form>
 				<br><br>
 
 				<form id="user" method="post">
-
+				{% csrf_token %}
 						<tr>
-							<th>You can enter notes about this IRB Project here.</th><!--Header Column--><br>
-							<td>{{project.review_notes}}</td><!--Text area for comments by Admin-->
+							<p>You can enter notes about this IRB Project here.<p><!--Header Column-->
+							<td>{{form.review_notes}}</td><!--Text area for comments by Admin-->
 						</tr>
 
-					<div  id="user_content" class="fright">
-						{{project.is_complete}}<br>
-						{{project.is_approved}}<br><br><br>
-						<!--A button to update the database with the new information that was submitted-->
-						<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+					<div  id="user_content" class="">
+						<br>
+						<p>If you would like to mark this submission as incomplete for the submitter to edit again, leave this unchecked. Otherwise mark it complete.<p>
+						<input type="checkbox" name="is_complete" id="id_is_complete">
+						<label class="vCheckboxLabel" for="id_is_complete">Complete</label><br><br>
+						<p>If you want to approve this project, check this box.<p>
+						<input type="checkbox" name="is_approved" id="id_is_approved">
+						<label class="vCheckboxLabel" for="id_is_approved">Approved</label><br><br>
+						<p>Approval Date<p>
+						<p>{{ form.date_approved}}<p><br>
+
+						<button class"fright" name="submit" type="submit" id="contact-submit" >Submit</button>
+
 					</div>
 					<br>
 					<br>

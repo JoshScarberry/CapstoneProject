@@ -8,7 +8,7 @@
 	{% block body%}
 	{% load static %}
 
-  
+
 
 		<!-- CONTENT-->
 
@@ -18,23 +18,18 @@
 
 				<form id="user" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
 				{% csrf_token %}
+					<h1 class="fright">Welcome: {{user.username}}</h1>
 					<h5>Projects</h5>
 					<br>
-					{% if user_list %}
-						{% for users in user_list %}
-							{{user.first_name}}
-						{% endfor %}
-					{% endif %}
 
 					<table id="small_table">
 						<tr>
 							<th>Submitted IRB Projects</th><!--Header Column-->
-							<th>Date Submitted</th><!--Header Column-->
-							<th>Approval Date</th><!--Header Column-->
-							<th>Status</th><!--Header Column-->
-							<th>Submitter First Name</th><!--Header Column-->
-							<th>Submitter Last Name</th><!--Header Column-->
-							<th>Review</th><!--Header Column-->
+			 				<th>Date Submitted</th><!--Header Column-->
+	            <th>Approval Date</th><!--Header Column-->
+	            <th>Status</th><!--Header Column-->
+	            <th>Submitter Name</th><!--Header Column-->
+	            <th>Review</th><!--Header Column-->
 						</tr>
 						{% if project_list %}
 							{% for project in project_list %}
@@ -42,7 +37,7 @@
 									<td>{{ project.project_name }}</td><!--Table Data that will be displayed by queries from the database-->
 									<td>{{  project.date_submitted }}</td><!--Table Data that will be displayed by queries from the database-->
 									{% if project.is_approved %}
-										<td>{{ project.project_name }}</td><!--Table Data that will be displayed by queries from the database                  Needs approved_date in Project model-->
+										<td>{{ project.date_approved }}</td><!--Table Data that will be displayed by queries from the database                  Needs approved_date in Project model-->
 									{% else %}
 										<td>Not yet approved</td>
 									{% endif %}
@@ -51,9 +46,8 @@
 									{% else %}
 										<td>Awaiting Review</td>
 									{% endif %}
-									<td>{{ user.first_name }}</td><!--Table Data that will be displayed by queries from the database-->
-									<td>{{ user.last_name }}</td><!--Table Data that will be displayed by queries from the database-->
-									<td><a href="{% url 'irbSite:reviewProject' pk=project.project_id %}">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
+										<td>{{ project.user.first_name }} {{ project.user.last_name }}</td><!--Table Data that will be displayed by queries from the database-->
+										<td><a href="{% url 'irbSite:reviewProject' pk=project.project_id %}">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
 								</tr>
 							{% endfor %}
 						{% else %}
@@ -73,6 +67,11 @@
 		<br>
 		<br>
 		<br>
-
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
 	{% endblock %}

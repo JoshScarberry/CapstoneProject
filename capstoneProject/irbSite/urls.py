@@ -2,6 +2,8 @@ from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 from . import views
 from django.core.urlresolvers import reverse_lazy
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 app_name = 'irbSite'
@@ -25,8 +27,8 @@ urlpatterns = [
 
     url(r'^review/(?P<pk>\d+)/', views.ReviewProject.as_view(), name = 'reviewProject'),
 
-    url(r'^project_forms/', views.project_forms,name='project_forms'),
+    url(r'^projectForms/', views.ProjectFormsView.as_view(), name = 'projectForms'),
 
     url(r'^test/', views.TestPage.as_view(),name='test'),
 
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

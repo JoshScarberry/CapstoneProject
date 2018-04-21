@@ -120,6 +120,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/userFiles/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'capstoneProject/irbSite/static/irbSite/userFiles')
+
+
 
 LOGIN_URL = 'irbSite:login'
 LOGIN_REDIRECT_URL = 'irbSite:index'
