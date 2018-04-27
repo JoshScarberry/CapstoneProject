@@ -2,7 +2,7 @@
 
 	{% block head %}
   <title>Middle Georgia State University | IRB User Page</title>
-  <meta name="Institutional Review Board (IRB)" content="This is the IRB User page" />
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB User index page" />
 	{% endblock %}
 
 	{% block body%}
@@ -33,21 +33,43 @@
 							{% if project_list %}
 								<tr>
 									<th>Project Name</th>
-									<th>Is Complete</th>
-									<th>Is Approved</th>
+									<th>Date Submitted</th>
+									<th>Completed</th>
+									<th>Approved</th>
+									<th>Edit/Review</th>
 								</tr>
 								{% for project in project_list  %}
 									{% if project.is_complete == False %}
 										<tr>
-											<th><a href="{% url 'irbSite:editProject' pk=project.project_id %}">{{project.project_name}}</a></th>
-											<th>{{project.is_complete}}</th>
-											<th>{{project.is_approved}}</th>
+											<th>{{project.project_name}}</th>
+											<th>{{project.date_submitted}}</th>
+											{% if project.is_complete %}
+												<th>Yes</th>
+											{% else %}
+												<th>No</th>
+											{% endif %}
+											{% if project.is_approved %}
+												<th>Yes</th>
+											{% else %}
+												<th>No</th>
+											{% endif %}
+											<th><a href="{% url 'irbSite:editProject' pk=project.project_id %}">Edit</a></th>
 										</tr>
 										{% else %}
 										<tr>
-											<th>{{project.project_name}}</a></th>
-											<th>{{project.is_complete}}</th>
-											<th>{{project.is_approved}}</th>
+											<th>{{project.project_name}}</th>
+											<th>{{project.date_submitted}}</th>
+											{% if project.is_complete %}
+												<th>Yes</th>
+											{% else %}
+												<th>No</th>
+											{% endif %}
+											{% if project.is_approved %}
+												<th>Yes</th>
+											{% else %}
+												<th>No</th>
+											{% endif %}
+											<th><a href="{% url 'irbSite:completeAwaitingReview' pk=project.project_id %}">Review</a></th>
 										</tr>
 									{% endif %}
 								{% endfor %}

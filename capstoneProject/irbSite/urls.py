@@ -4,6 +4,7 @@ from . import views
 from django.core.urlresolvers import reverse_lazy
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.decorators import permission_required
 
 
 app_name = 'irbSite'
@@ -29,8 +30,14 @@ urlpatterns = [
 
     url(r'^projectForms/', views.ProjectFormsView.as_view(), name = 'projectForms'),
 
-    url(r'^test/', views.TestPage.as_view(),name='test'),
+    url(r'^awaitingReview/(?P<pk>\d+)/', views.CompleteAwaitingReview.as_view(), name = 'completeAwaitingReview'),
 
     url(r'^confirmation/', views.ConfirmationView.as_view(),name = 'confirmation'),
+
+    url(r'^approved/', views.ApprovedProjectsListView.as_view(),name = 'approved'),
+
+    url(r'^approvedReview/(?P<pk>\d+)/', views.ApprovedProjectsUpdatesView.as_view(),name = 'approvedReview'),
+
+    #url(r'^test/', views.TestPage.as_view(),name='test'),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

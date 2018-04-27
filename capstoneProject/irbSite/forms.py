@@ -33,7 +33,7 @@ class ProjectForm(ModelForm):
         model = Project
         fields = ('project_name', 'review_type', 'consent_form', 'assent_form', 'surveys_form', 'methodology_form', 'grant_proposal_form', 'ext_circumstances_form',
                   'principal_investigator_signature', 'faculty_supervisor_signature', 'funding', 'start_date', 'end_date', 'purpose', 'methodology', 'benefits',
-                  'risk', 'recruited', 'why_identify', 'how_data_store', 'consent_process')
+                  'risk', 'recruited', 'why_identify', 'how_data_store', 'consent_process', 'is_complete')
 
         widgets = {'start_date' : SelectDateWidget, 'end_date' : SelectDateWidget, 'funding' : forms.Textarea(attrs={'placeholder' : 'Source of Funding (if any):'}),
                     'purpose' : forms.Textarea(attrs={'placeholder' : 'Describe the Scientific Purpose of the Investigation'}),

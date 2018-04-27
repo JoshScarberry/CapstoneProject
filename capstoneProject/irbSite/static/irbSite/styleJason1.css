@@ -16,7 +16,6 @@
 
 body {font-family: "Roboto", sans-serif; font-weight:400; font-size: 12px; line-height:1.625; color:#000; background-color: #e5e5e5;  overflow-x:hidden; width:100%; height: 100%; max-width:100%; width: auto\9; /* ie8 */}
 
-#special_background{background-image: url("images/body_side_img3.png");  background-repeat: repeat-x; background-size: 100%; font-family: "Roboto", sans-serif; font-weight:400; font-size: 12px; line-height:1.625; color:#000; background-color: #e5e5e5;  overflow-x:hidden; width:100%; height: 100%; max-width:100%; width: auto\9; /* ie8 */}
 
 #header {background-color: #633394; color:#ffffff; font-size:45px;letter-spacing:-2px; padding:5px 0px 0px 20px; width:100%; height:100%; overflow:hidden; height:140px; width: auto\9; /* ie8 */}
 #header img{float:left; max-width:100%; height: auto; width: auto\9; /* ie8 */}
@@ -92,7 +91,7 @@ h5 {width:100%; border:none; background:#633394; color:#FFF; text-align:center; 
 .progressbar_container {max-width:50%; max-height:100%; margin:0 auto; position:relative; width: auto\9; /* ie8 */}
 .wrapper {width:30%; font-size: 14px; text-align: center; margin:0; margin-top: 20px; margin-left:auto; margin-right:auto; overflow:hidden;}
 .form_content{width: 400px; max-width: 100%; max-height:100%; margin: 10px auto; width: auto\9; /* ie8 */}
-.login_content{width: 450px; max-width: 100%; max-height:100%; margin: 10px auto; width: auto\9; /* ie8 */}
+.login_content{width: 450px; max-width: 100%; max-height:100%; margin: 90px auto; width: auto\9; /* ie8 */}
 .user_content{width: 700px; max-width:100%; max-height:100%; margin: 0 auto 50px auto; width: auto\9; /* ie8 */}
 .small_content{width: 600px; max-width:100%; max-height:100%; margin: 0 auto 50px auto; width: auto\9; /* ie8 */}
 .big_content{width: 700px; max-width: 100%; max-width:100%; max-height:100%; margin: 0 auto 50px auto; width: auto\9; /* ie8 */}
@@ -117,10 +116,10 @@ h5 {width:100%; border:none; background:#633394; color:#FFF; text-align:center; 
 #contact input[type="tel"],
 #contact input[type="url"],
 #contact input[type="password"],
-#contact textarea {width:100%; max-width: 350px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#contact textarea {width:100%; max-width: 300px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
 #contact input[type="checkbox"]{font-size:15px;}
-#user textarea {width:100%; max-width: 250px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
-#forms textarea {width:100%; max-width: 250px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#user textarea {width:100%; max-width: 300px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#forms textarea {width:100%; max-width: 300px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
 
 
 
@@ -204,7 +203,7 @@ button:hover {background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-rin
 #nextBtn {background-color: #633394; border-radius:5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
 #saveBtn {background-color: #633394; border-radius:5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
 #editBtn {background-color: #633394; border-radius:5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
-#user a {background-color: #633394; color: #ffffff; font-size: 14px; border-radius:5px; font-weight: bold; padding: 10px 20px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); text-decoration: none;}
+#user a {background-color: #633394; color: #ffffff; font-size: 16px; border-radius:5px; font-weight: bold; padding: 10px 20px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); text-decoration: none;}
 #user  a:hover{background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ring-color auto 5px;}
 #form_buttom a {background-color: #633394; color: #ffffff; font-size: 16px; border-radius:5px; font-weight: bold; padding: 10px 20px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); text-decoration: none;}
 #form_button  a:hover{background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ring-color auto 5px;}
@@ -225,17 +224,15 @@ button:hover {background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-rin
 
 /***********TABLES*********/
 
-#big_table{border-collapse: collapse; width: 100%;	background-color: #ffffff; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
-#big_table td, #big_table th {border: 1px solid #ddd; padding: 10px; text-align: center;}
+#big_table{border-collapse: collapse; width: 400px;	background-color: #ffffff; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
+#big_table td, #big_table th {border: 1px solid #ddd; padding: 15px;}
 #big_table td {font-size: 14px;}
-#big_table .proj_title{font-family: 'ColaborateLightRegular', Arial, sans-serif; font-size: 16px; color: #633394; font-weight: bold;}
 #big_table tr:nth-child(odd){background-color: #ffffff;}
-#big_table th {padding-top: 15px; padding-bottom: 12px; background-color: #ffffff; font-size: 14px; color: #633394;}
+#big_table th {padding-top: 20px; padding-bottom: 12px; text-align: left; background-color: #ffffff; font-size: 14px; color: #633394;}
 #big_table .td_checkbox {text-align: center; vertical-align: middle; }
 
 
-#small_table {border-collapse: collapse; width: 100%; table-layout: fixed; background-color: #ffffff; border-radius: 5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
-#small_table td{word-wrap:break-word;}
+#small_table {border-collapse: collapse; width: 100%; background-color: #ffffff; border-radius: 5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
 #small_table td, #small_table th {border: 1px solid #ddd; padding: 10px; text-align: center;}
 #small_table td {font-size: 14px;}
 #small_table .proj_title{font-family: 'ColaborateLightRegular', Arial, sans-serif; font-size: 16px; color: #633394; font-weight: bold;}
