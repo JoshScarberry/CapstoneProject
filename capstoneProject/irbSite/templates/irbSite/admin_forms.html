@@ -29,6 +29,7 @@
 							<th>Methodology</th>
 							<th>Grant Proposal</th>
 							<th>Extenuating Circumstances</th>
+							<th>Principal Investigator Signature</th>
 							<th>Faculty Signature</th>
 						</tr>
 						<tr>
@@ -65,6 +66,12 @@
 
 						{% if project.ext_circumstances_form %}
 							<th><a class="" id="" href="{{ project.ext_circumstances_form.url }}" target="_blank" rel="noreferrer"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
+						{% else %}
+							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
+						{% endif %}
+
+						{% if project.principal_investigator_signature %}
+							<th><a class="" id="" href="{{ project.principal_investigator_signature.url }}" target="_blank" rel="noreferrer"><img class="small_icons" src="{% static 'irbSite/images/forms.png' %}" alt=""/> </a></th>
 						{% else %}
 							<th><img class="small_icons" src="{% static 'irbSite/images/no_forms.png' %}" alt=""/></th>
 						{% endif %}
