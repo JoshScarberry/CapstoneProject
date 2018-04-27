@@ -65,7 +65,7 @@ class ReviewProject(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
 #//////////////////////////////////////////////////// View for submitter to view a complete sumission but cannot edit ////////////////////////////
 class CompleteAwaitingReview(LoginRequiredMixin, DetailView):
     template_name = 'irbSite/user_project_review.html'
-    form_class = ProjectReviewForm
+    form_class = ProjectForm
     success_url = reverse_lazy('irbSite:index')
 
     def get_queryset(self, queryset=None ):
