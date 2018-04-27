@@ -2,16 +2,13 @@
 
 	{% block head %}
   <title>Middle Georgia State University | IRB Projects Page</title>
-  <meta name="Institutional Review Board (IRB)" content="This is the IRB Projects page" />
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB admin index page" />
 	{% endblock %}
 
 	{% block body%}
 	{% load static %}
 
-
-
 		<!-- CONTENT-->
-
 
 		<div class="user_content">
 			<section class="user_container">
@@ -19,9 +16,14 @@
 				<form id="user" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
 				{% csrf_token %}
 					<h1 class="fright">Welcome: {{user.username}}</h1>
-					<h5>Projects</h5>
+					<h5>Projects Awaiting Review</h5>
 					<br>
-
+					<p>To view previously approved projects click here. <a href="{% url 'irbSite:approved' %}">Approved</a></p>
+					<br>
+					<hr>
+					<br>
+					<p>Projects cuerrently awaiting review.</p>
+					<br>
 					<table id="small_table">
 						<tr>
 							<th>Submitted IRB Projects</th><!--Header Column-->
@@ -33,22 +35,24 @@
 						</tr>
 						{% if project_list %}
 							{% for project in project_list %}
-								<tr>
-									<td>{{ project.project_name }}</td><!--Table Data that will be displayed by queries from the database-->
-									<td>{{  project.date_submitted }}</td><!--Table Data that will be displayed by queries from the database-->
-									{% if project.is_approved %}
-										<td>{{ project.date_approved }}</td><!--Table Data that will be displayed by queries from the database                  Needs approved_date in Project model-->
-									{% else %}
-										<td>Not yet approved</td>
-									{% endif %}
-									{% if project.is_approved %}
-										<td>Approved</td><!--Table Data that will be displayed by queries from the database-->
-									{% else %}
-										<td>Awaiting Review</td>
-									{% endif %}
-										<td>{{ project.user.first_name }} {{ project.user.last_name }}</td><!--Table Data that will be displayed by queries from the database-->
-										<td><a href="{% url 'irbSite:reviewProject' pk=project.project_id %}">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
-								</tr>
+								{% if project.is_approved == False %}
+									<tr>
+										<td>{{ project.project_name }}</td><!--Table Data that will be displayed by queries from the database-->
+										<td>{{  project.date_submitted }}</td><!--Table Data that will be displayed by queries from the database-->
+										{% if project.is_approved %}
+											<td>{{ project.date_approved }}</td><!--Table Data that will be displayed by queries from the database-->
+										{% else %}
+											<td>Not yet approved</td>
+										{% endif %}
+										{% if project.is_approved %}
+											<td>Approved</td><!--Table Data that will be displayed by queries from the database-->
+										{% else %}
+											<td>Awaiting Review</td>
+										{% endif %}
+											<td>{{ project.user.first_name }} {{ project.user.last_name }}</td><!--Table Data that will be displayed by queries from the database-->
+											<td><a href="{% url 'irbSite:reviewProject' pk=project.project_id %}">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
+									</tr>
+								{% endif %}
 							{% endfor %}
 						{% else %}
 							<p>There are currently no completed projects for review</p>

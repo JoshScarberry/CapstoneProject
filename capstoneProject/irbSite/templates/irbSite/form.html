@@ -3,15 +3,14 @@
 
 	{% block head %}
 	<title>Middle Georgia State University | IRB FORM</title>
-	<meta name="Institutional Review Board (IRB)" content="This is the IRB form" />
+	<meta name="Institutional Review Board (IRB)" content="This is the IRB submission form" />
 	{% endblock %}
 
 	{% block body %}
 	{% load static %}
 
+	<!-- CONTENT-->
 
-
-<!-- CONTENT-->
 	<div class="small_container">
 	<section class="small_content">
 
@@ -146,11 +145,18 @@
 						<td>{{form.consent_process}}</td><!--Field to edit current information-->
 					</tr>
 
+					{% if project.is_complete == False %}
+						<tr>
+							<th>Are you sure all corrections have been made? If you are ready to resubmit this IRB application, set the value in the dropdown to "Yes".</th>
+							<td>{{ form.is_complete }}</td>
+						</tr>
+					{% endif %}
+
 				</table><!--End of the table-->
 			</div>
 			<br>
 			<div style="overflow:auto;">
-				<div class="fleft">
+				<div class="">
 					<!--<button type="submit" id="saveBtn" onclick="">Save</button>-->
 				</div>
 				<div style="float:right;">

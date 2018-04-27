@@ -19,7 +19,7 @@ class User(auth.models.User, auth.models.PermissionsMixin):
 
 class Project(models.Model):
     project_id = models.AutoField(primary_key=True)
-    project_name = models.CharField(max_length = 20)
+    project_name = models.CharField(max_length = 50)
     last_modified = models.DateField(auto_now=True, blank = True)
 
     # project qualified for
@@ -37,18 +37,18 @@ class Project(models.Model):
     ext_circumstances_form = models.FileField(blank = True, null = True)
     principal_investigator_signature = models.FileField(blank = True, null = True)
     faculty_supervisor_signature = models.FileField(blank = True, null = True)
-    funding = models.CharField(max_length = 500)
+    funding = models.CharField(max_length = 3000)
     start_date = models.DateField(blank = True)
     end_date = models.DateField(blank = True)
-    purpose = models.CharField(max_length = 500)
-    methodology = models.CharField(max_length = 500)
-    benefits = models.CharField(max_length = 500)
-    risk = models.CharField(max_length = 500, blank = True )
-    recruited = models.CharField(max_length = 500)
-    why_identify = models.CharField(max_length = 500)
-    how_data_store = models.CharField(max_length = 500)
-    consent_process = models.CharField(max_length = 500)
-    review_notes = models.CharField(max_length = 500, blank = True, null = True)
+    purpose = models.CharField(max_length = 3000)
+    methodology = models.CharField(max_length = 3000)
+    benefits = models.CharField(max_length = 3000)
+    risk = models.CharField(max_length = 3000, blank = True )
+    recruited = models.CharField(max_length = 3000)
+    why_identify = models.CharField(max_length = 3000)
+    how_data_store = models.CharField(max_length = 3000)
+    consent_process = models.CharField(max_length = 3000)
+    review_notes = models.CharField(max_length = 3000, blank = True, null = True)
     date_approved = models.DateField(null = True)
     date_submitted = models.DateField(auto_now_add = True)
 

@@ -2,18 +2,21 @@
 
 	{% block head %}
   <title>Middle Georgia State University | IRB Project Forms Page</title>
-  <meta name="Institutional Review Board (IRB)" content="This is the IRB admin forms page" />
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Approved Projects Detail page" />
 	{% endblock %}
 
 	{% block body%}
 	{% load static %}
 
+
+
 		<!-- CONTENT-->
+
 
 		<div class="big_container">
 			<section class="big_content">
 				<h1>Welcome {{user.username}}</h1>
-				<h5>Forms - Admin Review</h5><br>
+				<h5>Previously Approved Submissions Admin Review</h5><br>
 
 				<form id="forms" method="get">
 				{% csrf_token %}
@@ -139,11 +142,12 @@
 
 					<div  id="user_content" class="">
 						<br>
-						<p>If you would like this submission to become editable again, select "No". <p>
-						<p>Complete submission:<p>
+						<p>If you would like to set this IRB submission to incomplete, select "No, allow submitter to edit". <p>
+
 						<p>{{form.is_complete}}<p><br>
-						<p>If you want to approve this project, select "Approved".<p>
+						<p>If you want to set this IRB submission back to not approved, select "Not Approved".<p>
 						<p>{{form.is_approved}}<p><br>
+						<p>You do not need to change the approval date unless you are approving for a second time and would like to update the approval date.</p>
 						<p>Approval Date<p>
 						<p>{{form.date_approved}}<p><br>
 

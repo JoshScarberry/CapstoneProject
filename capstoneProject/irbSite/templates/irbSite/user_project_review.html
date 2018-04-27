@@ -2,7 +2,7 @@
 
 	{% block head %}
   <title>Middle Georgia State University | IRB Project Forms Page</title>
-  <meta name="Institutional Review Board (IRB)" content="This is the IRB admin forms page" />
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Project review page" />
 	{% endblock %}
 
 	{% block body%}
@@ -13,11 +13,12 @@
 		<div class="big_container">
 			<section class="big_content">
 				<h1>Welcome {{user.username}}</h1>
-				<h5>Forms - Admin Review</h5><br>
+				<h5>Submitter Review</h5><br>
 
 				<form id="forms" method="get">
 				{% csrf_token %}
-
+					<p>This is your IRB project submission. You cannot edit this project while it is up for review. If you would like to edit this project, contact the IRB staff.</p>
+					<br>
 					<p>Forms submitted for this project</p>
 
 					<table id="funky_table">
@@ -132,22 +133,9 @@
 
 				<form id="user" method="post">
 				{% csrf_token %}
-						<tr>
-							<p>You can enter notes about this IRB Project here.<p><!--Header Column-->
-							<td>{{form.review_notes}}</td><!--Text area for comments by Admin-->
-						</tr>
 
-					<div  id="user_content" class="">
-						<br>
-						<p>If you would like this submission to become editable again, select "No". <p>
-						<p>Complete submission:<p>
-						<p>{{form.is_complete}}<p><br>
-						<p>If you want to approve this project, select "Approved".<p>
-						<p>{{form.is_approved}}<p><br>
-						<p>Approval Date<p>
-						<p>{{form.date_approved}}<p><br>
 
-						<button class"fright" name="submit" type="submit" id="contact-submit" >Submit</button>
+						<a href="{% url 'irbSite:index' %}">Back to projects</a>
 
 					</div>
 					<br>

@@ -119,8 +119,8 @@ h5 {width:100%; border:none; background:#633394; color:#FFF; text-align:center; 
 #contact input[type="password"],
 #contact textarea {width:100%; max-width: 350px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
 #contact input[type="checkbox"]{font-size:15px;}
-#user textarea {width:100%; max-width: 250px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
-#forms textarea {width:100%; max-width: 250px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#user textarea {width:100%; max-width: 300px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
+#forms textarea {width:100%; max-width: 300px; border:1px solid #ccc; background:#FFF;margin:0 0 5px; padding:10px;}
 
 
 
@@ -204,7 +204,7 @@ button:hover {background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-rin
 #nextBtn {background-color: #633394; border-radius:5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
 #saveBtn {background-color: #633394; border-radius:5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
 #editBtn {background-color: #633394; border-radius:5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
-#user a {background-color: #633394; color: #ffffff; font-size: 14px; border-radius:5px; font-weight: bold; padding: 10px 20px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); text-decoration: none;}
+#user a {background-color: #633394; color: #ffffff; font-size: 16px; border-radius:5px; font-weight: bold; padding: 10px 20px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); text-decoration: none;}
 #user  a:hover{background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ring-color auto 5px;}
 #form_buttom a {background-color: #633394; color: #ffffff; font-size: 16px; border-radius:5px; font-weight: bold; padding: 10px 20px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); text-decoration: none;}
 #form_button  a:hover{background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-ring-color auto 5px;}
@@ -225,17 +225,15 @@ button:hover {background-color: #703aa7; opacity: 0.8; outline:-webkit-focus-rin
 
 /***********TABLES*********/
 
-#big_table{border-collapse: collapse; width: 100%;	background-color: #ffffff; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
-#big_table td, #big_table th {border: 1px solid #ddd; padding: 10px; text-align: center;}
+#big_table{border-collapse: collapse; width: 400px;	background-color: #ffffff; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
+#big_table td, #big_table th {border: 1px solid #ddd; padding: 15px;}
 #big_table td {font-size: 14px;}
-#big_table .proj_title{font-family: 'ColaborateLightRegular', Arial, sans-serif; font-size: 16px; color: #633394; font-weight: bold;}
 #big_table tr:nth-child(odd){background-color: #ffffff;}
-#big_table th {padding-top: 15px; padding-bottom: 12px; background-color: #ffffff; font-size: 14px; color: #633394;}
+#big_table th {padding-top: 20px; padding-bottom: 12px; text-align: left; background-color: #ffffff; font-size: 14px; color: #633394;}
 #big_table .td_checkbox {text-align: center; vertical-align: middle; }
 
 
-#small_table {border-collapse: collapse; width: 100%; table-layout: fixed; background-color: #ffffff; border-radius: 5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
-#small_table td{word-wrap:break-word;}
+#small_table {border-collapse: collapse; width: 100%; background-color: #ffffff; border-radius: 5px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);}
 #small_table td, #small_table th {border: 1px solid #ddd; padding: 10px; text-align: center;}
 #small_table td {font-size: 14px;}
 #small_table .proj_title{font-family: 'ColaborateLightRegular', Arial, sans-serif; font-size: 16px; color: #633394; font-weight: bold;}

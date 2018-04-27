@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Projects Page</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Approved Projects page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+		<!-- CONTENT-->
+
+		<div class="user_content">
+			<section class="user_container">
+
+				<form id="user" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
+				{% csrf_token %}
+					<h1 class="fright">Welcome: {{user.username}}</h1>
+					<h5>Approved Projects</h5>
+					<br>
+
+					<table id="small_table">
+						<tr>
+							<th>Submitted IRB Projects</th><!--Header Column-->
+			 				<th>Date Submitted</th><!--Header Column-->
+	            <th>Approval Date</th><!--Header Column-->
+	            <th>Status</th><!--Header Column-->
+	            <th>Submitter Name</th><!--Header Column-->
+	            <th>Review</th><!--Header Column-->
+						</tr>
+						{% if project_list %}
+							{% for project in project_list %}
+								<tr>
+									<td>{{ project.project_name }}</td><!--Table Data that will be displayed by queries from the database-->
+									<td>{{  project.date_submitted }}</td><!--Table Data that will be displayed by queries from the database-->
+									{% if project.is_approved %}
+										<td>{{ project.date_approved }}</td><!--Table Data that will be displayed by queries from the database-->
+									{% else %}
+										<td>Not yet approved</td>
+									{% endif %}
+									{% if project.is_approved %}
+										<td>Approved</td><!--Table Data that will be displayed by queries from the database-->
+									{% else %}
+										<td>Awaiting Review</td>
+									{% endif %}
+										<td>{{ project.user.first_name }} {{ project.user.last_name }}</td><!--Table Data that will be displayed by queries from the database-->
+										<td><a href="{% url 'irbSite:approvedReview' pk=project.project_id %}">Review</a></td><!--Hyperlink that will redirect the user to the current project for review-->
+								</tr>
+							{% endfor %}
+						{% else %}
+							<p>There are currently no completed projects for review</p>
+						{% endif %}
+					</table><!--End of Table-->
+
+					<br>
+					<br>
+				</form>
+			</section>
+
+		</div>
+		<br><!--Add space between form and footer-->
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+	{% endblock %}
