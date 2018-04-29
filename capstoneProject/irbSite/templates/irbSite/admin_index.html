@@ -15,7 +15,7 @@
 
 				<form id="user" method="post"><!--The action is the form-handler server page with a script for processing input data.-->
 				{% csrf_token %}
-					<h1 class="fright">Welcome: {{user.username}}</h1>
+					<h1>Welcome: {{user.username}}</h1>
 					<h5>Projects Awaiting Review</h5>
 					<br>
 					<p>To view previously approved projects click here. <a href="{% url 'irbSite:approved' %}">Approved</a></p>
@@ -66,8 +66,6 @@
 
 		</div>
 		<br><!--Add space between form and footer-->
-		<br>
-		<br>
 		<br>
 		<br>
 		<br>

@@ -140,26 +140,37 @@
 				</form>
 				<br><br>
 
+				<h5>Admin Notes</h5>
+
 				<form id="user" method="post">
 				{% csrf_token %}
-						<tr>
-							<p>You can enter notes about this IRB Project here.<p><!--Header Column-->
-							<td>{{form.review_notes}}</td><!--Text area for comments by Admin-->
-						</tr>
 
-					<div  id="user_content" class="">
-						<br>
-						<p>If you would like to set this IRB submission to incomplete, select "No, allow submitter to edit". <p>
-
-						<p>{{form.is_complete}}<p><br>
-						<p>If you want to set this IRB submission back to not approved, select "Not Approved".<p>
-						<p>{{form.is_approved}}<p><br>
-						<p>You do not need to change the approval date unless you are approving for a second time and would like to update the approval date.</p>
-						<p>Approval Date<p>
-						<p>{{form.date_approved}}<p><br>
-
+					<div  id="user_content" role="form" class="">
+						<table id="small_table">
+							<tr>
+								<td>You can enter notes about this IRB Project here. This will only be visible to other IRB board members.</td><!--Header Column-->
+								<td>{{form.review_notes}}</td><!--Text area for comments by Admin-->
+							</tr>
+							<tr>
+								<td>You can enter notes to the submitter of this project about any changes that need to be made.</td><!--Header Column-->
+								<td>{{form.notes_to_submitter}}</td><!--Text area for comments by Admin-->
+							</tr>
+							<tr>
+								<td>If you would like to set this IRB submission to incomplete, select "No, allow submitter to edit".</td>
+								<td>{{form.is_complete}}</td>
+							</tr>
+							<tr>
+								<td>This project is already approved, if this is an error, select "Not Approved".</td>
+								<td>{{form.is_approved}}</td>
+							</tr>
+							<tr>
+								<th>Approval Date</th>
+								<td>{{ form.date_approved}}</td>
+							</tr>
+						</table>
+							<br>
+							<br>
 						<button class"fright" name="submit" type="submit" id="contact-submit" >Submit</button>
-
 					</div>
 					<br>
 					<br>

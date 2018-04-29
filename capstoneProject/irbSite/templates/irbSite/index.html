@@ -36,6 +36,7 @@
 									<th>Date Submitted</th>
 									<th>Completed</th>
 									<th>Approved</th>
+									<th>Notes from Reviewer</th>
 									<th>Edit/Review</th>
 								</tr>
 								{% for project in project_list  %}
@@ -53,6 +54,7 @@
 											{% else %}
 												<th>No</th>
 											{% endif %}
+											<th><a href="{% url 'irbSite:notesToSubmitter' pk=project.project_id %}">Notes</a></th>
 											<th><a href="{% url 'irbSite:editProject' pk=project.project_id %}">Edit</a></th>
 										</tr>
 										{% else %}
@@ -69,6 +71,7 @@
 											{% else %}
 												<th>No</th>
 											{% endif %}
+											<th><a href="{% url 'irbSite:notesToSubmitter' pk=project.project_id %}">Notes</a></th>
 											<th><a href="{% url 'irbSite:completeAwaitingReview' pk=project.project_id %}">Review</a></th>
 										</tr>
 									{% endif %}
