@@ -32,6 +32,8 @@ urlpatterns = [
 
     url(r'^awaitingReview/(?P<pk>\d+)/', views.CompleteAwaitingReview.as_view(), name = 'completeAwaitingReview'),
 
+    url(r'^notes/(?P<pk>\d+)/', views.NotesToSubmitterView.as_view(), name = 'notesToSubmitter'),
+
     url(r'^confirmation/', views.ConfirmationView.as_view(),name = 'confirmation'),
 
     url(r'^approved/', views.ApprovedProjectsListView.as_view(),name = 'approved'),

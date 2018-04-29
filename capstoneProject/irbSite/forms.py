@@ -50,6 +50,7 @@ class ProjectForm(ModelForm):
 class ProjectReviewForm(ModelForm):
     class Meta():
         model = Project
-        fields = {'review_notes', 'is_complete', 'is_approved', 'date_approved'}
+        fields = {'review_notes', 'is_complete', 'is_approved', 'date_approved', 'notes_to_submitter'}
 
-        widgets = { 'review_notes' : forms.Textarea(attrs={'placeholder' : 'Add your notes for this project here.'}), 'date_approved' : SelectDateWidget}
+        widgets = { 'review_notes' : forms.Textarea(attrs={'placeholder' : 'Add your notes for this project here.'}), 'date_approved' : SelectDateWidget,
+                    'notes_to_submitter' : forms.Textarea(attrs={'placeholder' : 'Add your notes for this project here.'})}

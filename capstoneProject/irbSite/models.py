@@ -49,6 +49,7 @@ class Project(models.Model):
     how_data_store = models.CharField(max_length = 3000)
     consent_process = models.CharField(max_length = 3000)
     review_notes = models.CharField(max_length = 3000, blank = True, null = True)
+    notes_to_submitter = models.CharField(max_length = 3000, blank = True, null = True)
     date_approved = models.DateField(null = True)
     date_submitted = models.DateField(auto_now_add = True)
 

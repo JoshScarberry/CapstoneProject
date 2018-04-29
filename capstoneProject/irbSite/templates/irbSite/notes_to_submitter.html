@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+	{% block head %}
+  <title>Middle Georgia State University | IRB Confirmation Login</title>
+  <meta name="Institutional Review Board (IRB)" content="This is the IRB Form Confirmation page" />
+	{% endblock %}
+
+	{% block body%}
+	{% load static %}
+
+		<!-- CONTENT-->
+
+			<br>
+			<br>
+			<br>
+			<div class="small_container">
+				<section class="small_content">
+					<h1><b>Notes from IRB board about your submission.</b></h1><br>
+					<hr><br>
+					<h1>{{ project.notes_to_submitter }}</h1>
+				</section>
+				<form id="user"  method="post">
+					<a href="{% url 'irbSite:index' %}">Back to projects</a>
+				</form>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
+
+	{% endblock %}

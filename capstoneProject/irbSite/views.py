@@ -112,6 +112,16 @@ class ApprovedProjectsUpdatesView(LoginRequiredMixin, PermissionRequiredMixin, U
     #PermissionRequiredMixin
     permission_required = 'user.is_staff == True'
 
+#///////////////////////////////////////////////////// View for notes from review to submitter //////////////////////////////////////////////////////
+class NotesToSubmitterView(LoginRequiredMixin, DetailView):
+    template_name = 'irbSite/notes_to_submitter.html'
+    form_class = ProjectReviewForm
+    success_url = reverse_lazy('irbsite:index')
+
+    def get_queryset(self, queryset=None ):
+        return Project.objects.filter(user=self.request.user)
+
+
 #//////////////////////////////////////////////////// Succelfull submit page /////////////////////////////////////////////////////////////////////////////
 class ConfirmationView(LoginRequiredMixin, TemplateView):
     template_name = 'irbSite/confirmation.html'
